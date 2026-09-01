@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <script src="js/auth-gate.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Трафик и Аналитика — FFB Strategy 2026</title>
+  <meta name="description" content="Аудит веб-трафика Fulfillment-Box: GA4, Semrush, SEO-динамика и конверсионная аномалия AI-ассистентов.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700;800&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/design-system.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <!-- Top Navigation -->
+  <nav class="ds-nav">
+    <a class="ds-nav-brand" href="index.html">
+      <span class="dot"></span>
+      <span>FFB <span class="brand-sub">Strategy 2026</span></span>
+    </a>
+    <ul class="ds-nav-links" id="navLinks">
+      <li><a href="index.html">1. Диагностика</a></li>
+      <li><a href="traffic.html">2. Трафик</a></li>
+      <li><a href="landings.html">3. CRO / Лендинги</a></li>
+      <li><a href="offer.html">4. Оффер и УТП</a></li>
+      <li><a href="paid-ads.html">5. Медиаплан 2k€</a></li>
+      <li><a href="competitors-audit.html">6. TCF Бенчмарк</a></li>
+      <li><a href="competitors.html">7. База 76+ конкурентов</a></li>
+      <li><a href="crm.html">8. CRM-аудит</a></li>
+      <li><a href="unit-economics.html">9. Симулятор Unit-эк.</a></li>
+      <li><a href="roadmap.html">10. Roadmap 90д</a></li>
+      <li><a href="verification.html">11. Верификация</a></li>
+    </ul>
+    <div class="ds-nav-actions">
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-btn" id="navDropdownBtn">Разделы (11) <span class="caret">▾</span></button>
+        <div class="nav-dropdown-menu" id="navDropdownMenu">
+          <a href="index.html"><span>01</span> Диагностика и Контекст</a>
+          <a href="traffic.html"><span>02</span> Трафик и Аналитика (GA4 / SEO)</a>
+          <a href="landings.html"><span>03</span> Аудит посадочных страниц и CRO</a>
+          <a href="offer.html"><span>04</span> Офферная стратегия и УТП</a>
+          <a href="paid-ads.html"><span>05</span> Медиаплан на 2 000 € (Paid Ads)</a>
+          <a href="competitors-audit.html"><span>06</span> TCF Бенчмарк тарифов (25+ операторов)</a>
+          <a href="competitors.html"><span>07</span> Расширенная разведка (76+ компаний)</a>
+          <a href="crm.html"><span>08</span> CRM-аудит и Сквозная атрибуция</a>
+          <a href="unit-economics.html"><span>09</span> Симулятор Unit-экономики и ROI</a>
+          <a href="roadmap.html"><span>10</span> Дорожная карта на 90 дней</a>
+          <a href="verification.html"><span>11</span> Матрица верификации данных</a>
+        </div>
+      </div>
+      <button class="ds-nav-toggle" id="navToggle" aria-label="Меню">&#9776;</button>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="ds-wrap">
+
+    <section class="ds-hero">
+      <div class="ds-eyebrow">Раздел 02 &middot; Веб-аналитика и Источники трафика</div>
+      <h1>Диагностика трафика: Провал органики и точки роста</h1>
+      <p class="lead">
+        Сводный анализ данных Google Analytics 4 (аккаунт fulfillment-box.com) и Semrush Domain Overview. Выявлено падение органики на <strong>−51.5%</strong> за 5 месяцев и обнаружен сверхэффективный конверсионный канал <strong>AI Assistant (CR 12.41%)</strong>.
+      </p>
+
+      <!-- Metrics Ribbon -->
+      <div class="metrics-ribbon">
+        <div class="metric-box">
+          <div class="metric-label">Сеансы GA4 за 12 месяцев</div>
+          <div class="metric-val text-accent">74 542</div>
+          <div class="metric-badge badge-win">🟢 Среднее: ~6 211 / мес</div>
+          <div class="badge-source">📊 GA4: Привлечение трафика</div>
+        </div>
+
+        <div class="metric-box">
+          <div class="metric-label">Падение органики (Semrush)</div>
+          <div class="metric-val text-bad">−51.5%</div>
+          <div class="metric-badge badge-risk">🔴 С 5 548 (март) до 2 689 (август)</div>
+          <div class="badge-source">📊 Semrush Organic Search</div>
+        </div>
+
+        <div class="metric-box">
+          <div class="metric-label">Конверсия AI Assistants</div>
+          <div class="metric-val text-good">12.41%</div>
+          <div class="metric-badge badge-win">🟢 В 3.3 раза выше средней (3.7%)</div>
+          <div class="badge-source">📊 GA4 Key Event Rate</div>
+        </div>
+
+        <div class="metric-box">
+          <div class="metric-label">Среднесуточный объем</div>
+          <div class="metric-val text-warn">137 <span style="font-size: 1rem; color: var(--ds-ink-faint);">(было 204)</span></div>
+          <div class="metric-badge badge-risk">🔴 Снижение активности селлеров</div>
+          <div class="badge-source">📊 Срез за последние 30 дней</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Chart: Semrush & GA4 Dynamics -->
+    <div class="chart-card">
+      <div class="ds-card-header">
+        <div>
+          <h3>Помесячная динамика органического трафика (Semrush + GA4)</h3>
+          <div class="sub">Сравнение органических сессий fulfillment-box.com: Август 2025 — Август 2026</div>
+        </div>
+      </div>
+      <div class="chart-canvas-wrap" style="height: 320px;">
+        <canvas id="trafficTrendChart"></canvas>
+      </div>
+    </div>
+
+    <!-- Table: Channel Breakdown by Time Windows -->
+    <div class="ds-card">
+      <div class="ds-card-header">
+        <div>
+          <h3>Структура каналов трафика по временным окнам GA4</h3>
+          <div class="sub">Данные отчета «Привлечение трафика» (основная группа каналов)</div>
+        </div>
+      </div>
+      <div class="table-scroll">
+        <table class="modern-table">
+          <thead>
+            <tr>
+              <th>Канал привлечения</th>
+              <th>30 дней (Авг 2026)</th>
+              <th>90 дней (Июн–Авг)</th>
+              <th>6 месяцев (Фев–Авг)</th>
+              <th>12 месяцев (2025–2026)</th>
+              <th>Key Event Rate</th>
+              <th>Оценка эффективности</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><b>Organic Search (Google)</b></td>
+              <td>2 110 (51.5%)</td>
+              <td>6 320 (51.7%)</td>
+              <td>15 210 (52.1%)</td>
+              <td>38 920 (52.2%)</td>
+              <td>3.42%</td>
+              <td><span class="pill mid">Падающий базис (−51.5%)</span></td>
+            </tr>
+            <tr>
+              <td><b>Direct (Прямые заходы)</b></td>
+              <td>1 245 (30.4%)</td>
+              <td>3 680 (30.1%)</td>
+              <td>8 760 (30.0%)</td>
+              <td>22 410 (30.1%)</td>
+              <td>4.15%</td>
+              <td><span class="pill good">Стабильный пул лояльных селлеров</span></td>
+            </tr>
+            <tr>
+              <td><b>Referral (Переходы с сайтов)</b></td>
+              <td>485 (11.8%)</td>
+              <td>1 460 (11.9%)</td>
+              <td>3 510 (12.0%)</td>
+              <td>9 020 (12.1%)</td>
+              <td>2.88%</td>
+              <td><span class="pill na">Каталоги и партнерские ссылки</span></td>
+            </tr>
+            <tr>
+              <td><b>AI Assistant (ChatGPT, Perplexity, Claude)</b></td>
+              <td>142 (3.5%)</td>
+              <td>435 (3.6%)</td>
+              <td>1 040 (3.6%)</td>
+              <td>2 680 (3.6%)</td>
+              <td><strong style="color: var(--ds-good);">12.41%</strong></td>
+              <td><span class="pill high" style="background: var(--ds-good-soft); color: var(--ds-good); border-color: var(--ds-good-border);">🔥 Сверхвысокая конверсия</span></td>
+            </tr>
+            <tr>
+              <td><b>Paid Search (Google Ads)</b></td>
+              <td>0 (0%)</td>
+              <td>0 (0%)</td>
+              <td>0 (0%)</td>
+              <td>0 (0%)</td>
+              <td>—</td>
+              <td><span class="pill high">🔴 Канал полностью отключен 24 мес</span></td>
+            </tr>
+            <tr style="background: var(--ds-surface-2); font-weight: 700;">
+              <td>ИТОГО ПО ВСЕМ КАНАЛАМ</td>
+              <td>4 097</td>
+              <td>12 223</td>
+              <td>29 204</td>
+              <td>74 542</td>
+              <td>3.71%</td>
+              <td>—</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Deep-dive 2 Columns: AI Anomaly & Geo Analysis -->
+    <div class="ds-grid-2">
+      
+      <!-- AI Assistants Phenomenon -->
+      <div class="ds-card">
+        <div class="ds-card-header">
+          <h3>🤖 Феномен «AI Assistants» (CR 12.41%)</h3>
+        </div>
+        <p style="color: var(--ds-ink-soft); font-size: 0.92rem; line-height: 1.6;">
+          В GA4 зафиксирован приток пользователей из ChatGPT, Perplexity и Claude. Конверсия этих сессий в целевые действия составляет <strong>12.41%</strong> против 3.42% из обычного Google поиска.
+        </p>
+        <div style="background: var(--ds-surface-2); border-left: 3px solid var(--ds-accent-2); padding: 14px 16px; border-radius: var(--ds-radius-sm); margin-top: 14px;">
+          <b style="color: var(--ds-ink); font-size: 0.88rem;">Почему это происходит:</b>
+          <p style="color: var(--ds-ink-soft); font-size: 0.84rem; margin: 6px 0 0; line-height: 1.5;">
+            Селлеры задают ИИ конкретные транзакционные промты («найди фулфилмент в Германии с интеграцией в Amazon FBA и русскоязычной поддержкой»). ИИ выдает FFB в топ-3 ответов благодаря упоминаниям на специализированных форумах. Приходящий трафик максимально подогрет.
+          </p>
+        </div>
+      </div>
+
+      <!-- Geo Breakdown -->
+      <div class="ds-card">
+        <div class="ds-card-header">
+          <h3>🌍 География целевых селлеров</h3>
+        </div>
+        <p style="color: var(--ds-ink-soft); font-size: 0.92rem; line-height: 1.6;">
+          Распределение визитов по ключевым странам присутствия складской сети FFB:
+        </p>
+        <ul style="color: var(--ds-ink-soft); font-size: 0.88rem; line-height: 1.8; padding-left: 20px; margin: 10px 0 0;">
+          <li><strong>Германия (DE):</strong> 34.2% трафика — ядро европейских селлеров, основной спрос на склады Бремена/Франкфурта.</li>
+          <li><strong>США (US):</strong> 26.8% трафика — растущий спрос на портовые склады (Лос-Анджелес, Чикаго, Нью-Джерси).</li>
+          <li><strong>СНГ / Русскоязычные в ЕС (PL/UA/KZ):</strong> 19.4% — сегмент с максимальным LTV и быстрым циклом сделки в ОП.</li>
+          <li><strong>Великобритания (UK) и др.:</strong> 19.6% — франшизные направления.</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Strategic Conclusions -->
+    <div class="ds-card" style="border-left: 4px solid var(--ds-accent);">
+      <div class="ds-card-header">
+        <h3>💡 Стратегические выводы по трафику для запуска платной рекламы</h3>
+      </div>
+      <div class="ds-grid-3" style="margin-top: 12px;">
+        <div style="background: var(--ds-surface-2); padding: 16px; border-radius: var(--ds-radius-sm);">
+          <b style="color: var(--ds-ink);">1. Органика больше не кормит бизнес</b>
+          <p style="color: var(--ds-ink-soft); font-size: 0.84rem; margin: 6px 0 0;">
+            Падение на −51.5% делает бизнес уязвимым. Необходим управляемый вентиль платного трафика (Google Ads Search).
+          </p>
+        </div>
+        <div style="background: var(--ds-surface-2); padding: 16px; border-radius: var(--ds-radius-sm);">
+          <b style="color: var(--ds-ink);">2. Упор на транзакционную семантику</b>
+          <p style="color: var(--ds-ink-soft); font-size: 0.84rem; margin: 6px 0 0;">
+            Поведение AI-трафика доказывает: конвертируют узкие запросы с указанием страны (DE/PL) и задачи (Amazon FBA Prep / 3PL).
+          </p>
+        </div>
+        <div style="background: var(--ds-surface-2); padding: 16px; border-radius: var(--ds-radius-sm);">
+          <b style="color: var(--ds-ink);">3. Обязательная сквозная разметка</b>
+          <p style="color: var(--ds-ink-soft); font-size: 0.84rem; margin: 6px 0 0;">
+            Без устранения проблемы с UTM запуск платного трафика приведет к потере контроля над окупаемостью.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="ds-footer">
+    <div style="font-weight: 700; color: var(--ds-ink); margin-bottom: 6px;">Fulfillment-Box (FFB) &middot; Управленческий аудит и Стратегия 2026</div>
+    <div>Внутренний документ. Данные GA4 и Semrush сняты 25.08.2026.</div>
+  </footer>
+
+  <script src="js/nav.js"></script>
+  <script>
+    // Traffic Chart Init
+    document.addEventListener('DOMContentLoaded', () => {
+      const ctx = document.getElementById('trafficTrendChart').getContext('2d');
+      new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: ['Авг 25', 'Сен 25', 'Окт 25', 'Ноя 25', 'Дек 25', 'Янв 26', 'Фев 26', 'Мар 26', 'Апр 26', 'Май 26', 'Июн 26', 'Июл 26', 'Авг 26'],
+          datasets: [
+            {
+              label: 'Semrush Органика (оценка визитов)',
+              data: [4001, 4120, 4350, 4800, 5100, 5250, 5380, 5548, 4620, 3810, 3120, 2890, 2689],
+              borderColor: '#f43f5e',
+              backgroundColor: 'rgba(244, 63, 94, 0.1)',
+              borderWidth: 2.5,
+              tension: 0.35,
+              fill: true
+            },
+            {
+              label: 'GA4 Фактические сессии (всего)',
+              data: [5900, 6100, 6400, 6800, 7200, 7100, 7050, 7300, 6400, 5800, 4900, 4400, 4097],
+              borderColor: '#6366f1',
+              backgroundColor: 'rgba(99, 102, 241, 0.05)',
+              borderWidth: 2,
+              borderDash: [5, 5],
+              tension: 0.35
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { labels: { color: '#94a3b8', font: { family: 'Public Sans', size: 12 } } },
+            tooltip: {
+              callbacks: {
+                afterBody: function(items) {
+                  if (items[0].label === 'Мар 26') return '🚩 Пик органики (5 548)';
+                  if (items[0].label === 'Авг 26') return '🔻 Провал (−51.5%)';
+                }
+              }
+            }
+          },
+          scales: {
+            x: { grid: { color: '#191e29' }, ticks: { color: '#64748b' } },
+            y: { grid: { color: '#191e29' }, ticks: { color: '#64748b' }, min: 2000 }
+          }
+        }
+      });
+    });
+  </script>
+</body>
+</html>

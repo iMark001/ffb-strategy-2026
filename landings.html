@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <script src="js/auth-gate.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Аудит посадочных страниц и CRO — FFB Strategy 2026</title>
+  <meta name="description" content="Конверсионный аудит страниц fulfillment-box.com, анализ точек потери лидов и спецификация конверсионного лендинга.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700;800&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/design-system.css">
+</head>
+<body>
+
+    <!-- Top Navigation -->
+  <nav class="ds-nav">
+    <a class="ds-nav-brand" href="index.html">
+      <span class="dot"></span>
+      <span>FFB <span class="brand-sub">Strategy 2026</span></span>
+    </a>
+    <ul class="ds-nav-links" id="navLinks">
+      <li><a href="index.html">1. Диагностика</a></li>
+      <li><a href="traffic.html">2. Трафик</a></li>
+      <li><a href="landings.html">3. CRO / Лендинги</a></li>
+      <li><a href="offer.html">4. Оффер и УТП</a></li>
+      <li><a href="paid-ads.html">5. Медиаплан 2k€</a></li>
+      <li><a href="competitors-audit.html">6. TCF Бенчмарк</a></li>
+      <li><a href="competitors.html">7. База 76+ конкурентов</a></li>
+      <li><a href="crm.html">8. CRM-аудит</a></li>
+      <li><a href="unit-economics.html">9. Симулятор Unit-эк.</a></li>
+      <li><a href="roadmap.html">10. Roadmap 90д</a></li>
+      <li><a href="verification.html">11. Верификация</a></li>
+    </ul>
+    <div class="ds-nav-actions">
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-btn" id="navDropdownBtn">Разделы (11) <span class="caret">▾</span></button>
+        <div class="nav-dropdown-menu" id="navDropdownMenu">
+          <a href="index.html"><span>01</span> Диагностика и Контекст</a>
+          <a href="traffic.html"><span>02</span> Трафик и Аналитика (GA4 / SEO)</a>
+          <a href="landings.html"><span>03</span> Аудит посадочных страниц и CRO</a>
+          <a href="offer.html"><span>04</span> Офферная стратегия и УТП</a>
+          <a href="paid-ads.html"><span>05</span> Медиаплан на 2 000 € (Paid Ads)</a>
+          <a href="competitors-audit.html"><span>06</span> TCF Бенчмарк тарифов (25+ операторов)</a>
+          <a href="competitors.html"><span>07</span> Расширенная разведка (76+ компаний)</a>
+          <a href="crm.html"><span>08</span> CRM-аудит и Сквозная атрибуция</a>
+          <a href="unit-economics.html"><span>09</span> Симулятор Unit-экономики и ROI</a>
+          <a href="roadmap.html"><span>10</span> Дорожная карта на 90 дней</a>
+          <a href="verification.html"><span>11</span> Матрица верификации данных</a>
+        </div>
+      </div>
+      <button class="ds-nav-toggle" id="navToggle" aria-label="Меню">&#9776;</button>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="ds-wrap">
+
+    <section class="ds-hero">
+      <div class="ds-eyebrow">Раздел 03 &middot; Conversion Rate Optimization & Лендинги</div>
+      <h1>Аудит посадочных страниц: Точки трения и Новый конвертер</h1>
+      <p class="lead">
+        Технический и маркетинговый разбор ключевых посадочных страниц FFB (`fulfillment-box.com`, `de.`, `ua.`). Выявлены критические барьеры: перегруженные формы (до 18 полей), отсутствие скрытых полей захвата UTM и нехватка Social Proof.
+      </p>
+
+      <!-- Metrics Ribbon -->
+      <div class="metrics-ribbon">
+        <div class="metric-box">
+          <div class="metric-label">Полей в форме (на ua.ffb)</div>
+          <div class="metric-val text-bad">18</div>
+          <div class="metric-badge badge-risk">🔴 Отсекает до 90% мобильного трафика</div>
+          <div class="badge-source">📊 DOM-аудит формы заявки</div>
+        </div>
+
+        <div class="metric-box">
+          <div class="metric-label">Скрытых UTM-полей</div>
+          <div class="metric-val text-bad">0 из 3</div>
+          <div class="metric-badge badge-risk">🔴 Ни на одной странице нет трекера</div>
+          <div class="badge-source">📊 Технический аудит скриптов</div>
+        </div>
+
+        <div class="metric-box">
+          <div class="metric-label">Текущая конверсия в лид</div>
+          <div class="metric-val text-warn">~0.8%</div>
+          <div class="metric-badge badge-risk">🔴 CPL при такой CR > 120 €</div>
+          <div class="badge-source">📊 Расчет по GA4 формам</div>
+        </div>
+
+        <div class="metric-box">
+          <div class="metric-label">Целевая конверсия лендинга</div>
+          <div class="metric-val text-good">4.5%</div>
+          <div class="metric-badge badge-win">🟢 Снижение CPL до 37.74 €</div>
+          <div class="badge-source">📊 Медиаплан FFB 2026</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Audit Table of Current Pages -->
+    <div class="ds-card">
+      <div class="ds-card-header">
+        <div>
+          <h3>Технический и конверсионный аудит страниц FFB</h3>
+          <div class="sub">Сравнение основных зеркал сайта перед направлением платного трафика</div>
+        </div>
+      </div>
+      <div class="table-scroll">
+        <table class="modern-table">
+          <thead>
+            <tr>
+              <th>URL лендинга</th>
+              <th>Назначение</th>
+              <th>Технический аудит форм</th>
+              <th>Конверсионные барьеры</th>
+              <th>Готовность к Ads</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><b>fulfillment-box.com</b></td>
+              <td>Главный многоязычный портал</td>
+              <td>2 формы, 31 инпут, <strong>0 UTM-полей</strong> в видимых формах. GTM-M34FBBS.</td>
+              <td>Перегружен общим текстом, нет четкого позиционирования для селлеров Amazon/eBay.</td>
+              <td><span class="pill warn">4 / 10 (Слабо)</span></td>
+            </tr>
+            <tr>
+              <td><b>de.fulfillment-box.com</b></td>
+              <td>Локализованный лендинг под Германию</td>
+              <td>1 форма, 3 инпута, <strong>0 скрытых полей</strong>, <code>has_utm_script: FALSE</code>.</td>
+              <td>Статичный сухой текст, нет интерактивного калькулятора, размытое ценообразование.</td>
+              <td><span class="pill warn">3 / 10 (Низко)</span></td>
+            </tr>
+            <tr>
+              <td><b>ua.fulfillment-box.com</b></td>
+              <td>Лендинг для СНГ/русскоязычных селлеров</td>
+              <td>1 форма, <strong>18 инпутов</strong>, <strong>0 скрытых полей</strong>, GTM-MX35Q6HH.</td>
+              <td><strong>Колоссальное трение: анкета на 18 полей</strong> (габариты, вес партии, номенклатура) до расчета цены.</td>
+              <td><span class="pill high">2 / 10 (Критично)</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- 4 Conversion Friction Points -->
+    <h2 style="font-size: 1.35rem; font-weight: 800; margin: 36px 0 16px;">
+      4 Ключевые точки конверсионных потерь
+    </h2>
+
+    <div class="ds-grid-2">
+      <div class="ds-card" style="border-left: 3px solid var(--ds-bad);">
+        <div class="ds-card-header">
+          <h4 style="color: var(--ds-bad);">1. Анкета-допрос (18 полей на вход)</h4>
+        </div>
+        <p style="color: var(--ds-ink-soft); font-size: 0.9rem; line-height: 1.6;">
+          Пользователя заставляют вводить сложные весогабаритные параметры партии до того, как ему показали ориентировочную стоимость. 9 из 10 селлеров закрывают вкладку на 3-м поле.
+        </p>
+        <div style="background: var(--ds-surface-2); padding: 10px 14px; border-radius: var(--ds-radius-sm); font-size: 0.82rem; color: var(--ds-good);">
+          <strong>Решение:</strong> Двухэтапная воронка: Шаг 1 (Маркетплейс + Объем отправлений) &rarr; Шаг 2 (Куда прислать расчет экономии: Email/Telegram).
+        </div>
+      </div>
+
+      <div class="ds-card" style="border-left: 3px solid var(--ds-bad);">
+        <div class="ds-card-header">
+          <h4 style="color: var(--ds-bad);">2. Разрыв сквозного трекинга</h4>
+        </div>
+        <p style="color: var(--ds-ink-soft); font-size: 0.9rem; line-height: 1.6;">
+          При переходе селлера по ссылке с рекламы метки (UTM, gclid) присутствуют в URL браузера, но форма <code>ffbox-offer-form</code> отправляет AJAX-запрос без них. В CRM лид падает со статусом «Прочий трафик».
+        </p>
+        <div style="background: var(--ds-surface-2); padding: 10px 14px; border-radius: var(--ds-radius-sm); font-size: 0.82rem; color: var(--ds-good);">
+          <strong>Решение:</strong> Внедрение скрипта <code>full_attribution_tracker.js</code>, собирающего метки в скрытые поля формы.
+        </div>
+      </div>
+
+      <div class="ds-card" style="border-left: 3px solid var(--ds-warn);">
+        <div class="ds-card-header">
+          <h4 style="color: var(--ds-warn);">3. Отсутствие Social Proof и доверия</h4>
+        </div>
+        <p style="color: var(--ds-ink-soft); font-size: 0.9rem; line-height: 1.6;">
+          На лендингах нет реальных фото собственных складов FFB (Германия KDS, Польша, Индиана), логотипов ключевых селлеров и сертификатов соответствия Amazon SPN.
+        </p>
+        <div style="background: var(--ds-surface-2); padding: 10px 14px; border-radius: var(--ds-radius-sm); font-size: 0.82rem; color: var(--ds-good);">
+          <strong>Решение:</strong> Добавить блок «Фото наших собственных складов в Бремен/Варшава», реальные кейсы экономии и логотипы селлеров.
+        </div>
+      </div>
+
+      <div class="ds-card" style="border-left: 3px solid var(--ds-warn);">
+        <div class="ds-card-header">
+          <h4 style="color: var(--ds-warn);">4. Утечка мобильных селлеров</h4>
+        </div>
+        <p style="color: var(--ds-ink-soft); font-size: 0.9rem; line-height: 1.6;">
+          Более 55% первичных переходов с рекламы совершаются со смартфонов. Форма не оптимизирована под мобильный ввод, кнопки мессенджеров отсутствуют в первом экране.
+        </p>
+        <div style="background: var(--ds-surface-2); padding: 10px 14px; border-radius: var(--ds-radius-sm); font-size: 0.82rem; color: var(--ds-good);">
+          <strong>Решение:</strong> Кнопка «Связаться в Telegram / WhatsApp в 1 клик» с автоматической передачей UTM в первый диалог.
+        </div>
+      </div>
+    </div>
+
+    <!-- Architecture of New Landing Page -->
+    <div class="ds-card" style="margin-top: 24px; border: 1px solid var(--ds-accent);">
+      <div class="ds-card-header">
+        <div>
+          <h3>📐 Спецификация нового конверсионного лендинга для платного трафика</h3>
+          <div class="sub">Архитектура посадочной страницы под рекламный бюджет 2 000 €</div>
+        </div>
+      </div>
+      <div class="ds-grid-3" style="margin-top: 14px;">
+        <div style="background: var(--ds-surface-2); padding: 18px; border-radius: var(--ds-radius-sm);">
+          <b style="color: var(--ds-accent-2); font-size: 0.92rem;">Экран 1: Оффер + Лид-магнит</b>
+          <ul style="color: var(--ds-ink-soft); font-size: 0.82rem; margin: 8px 0 0; padding-left: 16px; line-height: 1.5;">
+            <li>Четкий заголовок: «Собственные склады в Германии и Польше для Amazon/eBay селлеров».</li>
+            <li>Интерактивный экспресс-калькулятор (3 клика).</li>
+            <li>Кнопка «Получить расчет стоимости за 15 мин».</li>
+          </ul>
+        </div>
+
+        <div style="background: var(--ds-surface-2); padding: 18px; border-radius: var(--ds-radius-sm);">
+          <b style="color: var(--ds-accent-2); font-size: 0.92rem;">Экран 2: Факты и Social Proof</b>
+          <ul style="color: var(--ds-ink-soft); font-size: 0.82rem; margin: 8px 0 0; padding-left: 16px; line-height: 1.5;">
+            <li>653 действующих селлера в сети.</li>
+            <li>Фото реального склада в Германии (Бремен).</li>
+            <li>Гарантия SLA: отгрузка день в день.</li>
+            <li>Прямая интеграция WMS за 48 часов.</li>
+          </ul>
+        </div>
+
+        <div style="background: var(--ds-surface-2); padding: 18px; border-radius: var(--ds-radius-sm);">
+          <b style="color: var(--ds-accent-2); font-size: 0.92rem;">Экран 3: Форма захвата + Чат</b>
+          <ul style="color: var(--ds-ink-soft); font-size: 0.82rem; margin: 8px 0 0; padding-left: 16px; line-height: 1.5;">
+            <li>Всего 3 поля: Страна склада, Площадка (Amazon/eBay/Shop), Telegram/Email.</li>
+            <li>Скрытые поля: UTM_source, medium, campaign, gclid.</li>
+            <li>Мгновенный пуш в Битрикс24 квалификатору.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="ds-footer">
+    <div style="font-weight: 700; color: var(--ds-ink); margin-bottom: 6px;">Fulfillment-Box (FFB) &middot; Управленческий аудит и Стратегия 2026</div>
+    <div>Внутренний документ. Аудит посадочных страниц и форм заявки.</div>
+  </footer>
+
+  <script src="js/nav.js"></script>
+</body>
+</html>

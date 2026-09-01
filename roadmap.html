@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <script src="js/auth-gate.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дорожная карта на 90 дней — FFB Strategy 2026</title>
+  <meta name="description" content="Понедельный операционный план внедрения стратегии масштабирования Fulfillment-Box на 90 дней.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700;800&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/design-system.css">
+</head>
+<body>
+
+    <!-- Top Navigation -->
+  <nav class="ds-nav">
+    <a class="ds-nav-brand" href="index.html">
+      <span class="dot"></span>
+      <span>FFB <span class="brand-sub">Strategy 2026</span></span>
+    </a>
+    <ul class="ds-nav-links" id="navLinks">
+      <li><a href="index.html">1. Диагностика</a></li>
+      <li><a href="traffic.html">2. Трафик</a></li>
+      <li><a href="landings.html">3. CRO / Лендинги</a></li>
+      <li><a href="offer.html">4. Оффер и УТП</a></li>
+      <li><a href="paid-ads.html">5. Медиаплан 2k€</a></li>
+      <li><a href="competitors-audit.html">6. TCF Бенчмарк</a></li>
+      <li><a href="competitors.html">7. База 76+ конкурентов</a></li>
+      <li><a href="crm.html">8. CRM-аудит</a></li>
+      <li><a href="unit-economics.html">9. Симулятор Unit-эк.</a></li>
+      <li><a href="roadmap.html">10. Roadmap 90д</a></li>
+      <li><a href="verification.html">11. Верификация</a></li>
+    </ul>
+    <div class="ds-nav-actions">
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-btn" id="navDropdownBtn">Разделы (11) <span class="caret">▾</span></button>
+        <div class="nav-dropdown-menu" id="navDropdownMenu">
+          <a href="index.html"><span>01</span> Диагностика и Контекст</a>
+          <a href="traffic.html"><span>02</span> Трафик и Аналитика (GA4 / SEO)</a>
+          <a href="landings.html"><span>03</span> Аудит посадочных страниц и CRO</a>
+          <a href="offer.html"><span>04</span> Офферная стратегия и УТП</a>
+          <a href="paid-ads.html"><span>05</span> Медиаплан на 2 000 € (Paid Ads)</a>
+          <a href="competitors-audit.html"><span>06</span> TCF Бенчмарк тарифов (25+ операторов)</a>
+          <a href="competitors.html"><span>07</span> Расширенная разведка (76+ компаний)</a>
+          <a href="crm.html"><span>08</span> CRM-аудит и Сквозная атрибуция</a>
+          <a href="unit-economics.html"><span>09</span> Симулятор Unit-экономики и ROI</a>
+          <a href="roadmap.html"><span>10</span> Дорожная карта на 90 дней</a>
+          <a href="verification.html"><span>11</span> Матрица верификации данных</a>
+        </div>
+      </div>
+      <button class="ds-nav-toggle" id="navToggle" aria-label="Меню">&#9776;</button>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="ds-wrap">
+
+    <section class="ds-hero">
+      <div class="ds-eyebrow">Раздел 09 &middot; Пошаговый операционный план</div>
+      <h1>Дорожная карта реализации стратегии на 90 дней</h1>
+      <p class="lead">
+        Понедельный план перезапуска платной лидогенерации FFB: от устранения технических разрывов трекинга в CRM до первого финансового отчета окупаемости пилота на 2 000 € и масштабирования до 5 000+ €/мес.
+      </p>
+
+      <!-- Metrics Ribbon -->
+      <div class="metrics-ribbon">
+        <div class="metric-box">
+          <div class="metric-label">Горизонт внедрения</div>
+          <div class="metric-val text-accent">90 дней</div>
+          <div class="metric-badge badge-win">🟢 3 спринта по 4 недели</div>
+          <div class="badge-source">📊 Операционный план 2026</div>
+        </div>
+
+        <div class="metric-box">
+          <div class="metric-label">Спринт 1: Фундамент</div>
+          <div class="metric-val text-good">Недели 1–4</div>
+          <div class="metric-badge badge-win">🟢 CRM трекер + Запуск в ЕС</div>
+          <div class="badge-source">📊 Сентябрь 2026</div>
+        </div>
+
+        <div class="metric-box">
+          <div class="metric-label">Спринт 2: Экспансия США</div>
+          <div class="metric-val text-warn">Недели 5–8</div>
+          <div class="metric-badge badge-neutral">⚪ US Ports + Meta Retargeting</div>
+          <div class="badge-source">📊 Октябрь 2026</div>
+        </div>
+
+        <div class="metric-box">
+          <div class="metric-label">Спринт 3: Масштаб</div>
+          <div class="metric-val text-good">Недели 9–12</div>
+          <div class="metric-badge badge-win">🟢 Окупаемость + Бюджет 5k€+</div>
+          <div class="badge-source">📊 Ноябрь 2026</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Roadmap Timeline -->
+    <div class="roadmap-timeline">
+      
+      <!-- Phase 1 -->
+      <div class="phase-card phase-1">
+        <div class="phase-header">
+          <div class="phase-title-group">
+            <span class="phase-badge">ФАЗА 1 &middot; СЕНТЯБРЬ</span>
+            <h3 style="margin: 0; font-size: 1.25rem;">Фундамент, Сквозная атрибуция и Старт в ЕС (Германия/Польша)</h3>
+          </div>
+          <div style="font-family: var(--ds-font-mono); font-size: 0.8rem; color: var(--ds-accent-2);">Недели 1 — 4</div>
+        </div>
+        <div class="sprint-grid">
+          <div class="sprint-box">
+            <h5>Неделя 1: Инфраструктура трекинга</h5>
+            <ul>
+              <li>Внедрение <code>full_attribution_tracker.js</code> на все домены FFB.</li>
+              <li>Настройка скрытых полей захвата UTM и Click ID в форме <code>ffbox-offer-form</code>.</li>
+              <li>Тестирование сквозной передачи данных в Битрикс24.</li>
+            </ul>
+          </div>
+
+          <div class="sprint-box">
+            <h5>Неделя 2: CRO и Редизайн первого экрана</h5>
+            <ul>
+              <li>Создание нового конверсионного экрана под селлеров DE/PL.</li>
+              <li>Внедрение 3-шагового экспресс-калькулятора стоимости.</li>
+              <li>Сокращение полей формы захвата до 3 обязательных инпутов.</li>
+            </ul>
+          </div>
+
+          <div class="sprint-box">
+            <h5>Неделя 3: Запуск Google Ads DE/PL</h5>
+            <ul>
+              <li>Запуск кампании C1 (русскоязычные селлеры в ЕС: Германия + Польша).</li>
+              <li>Бюджет 800 €/мес, контроль поисковых запросов и минус-слов.</li>
+              <li>Настройка автоматических алертов в Telegram о новых лидах.</li>
+            </ul>
+          </div>
+
+          <div class="sprint-box">
+            <h5>Неделя 4: Первые 25 лидов и калибровка ОП</h5>
+            <ul>
+              <li>Сбор первой когорты 20–25 MQL заявок.</li>
+              <li>Еженедельная сверка с ОП по скорости квалификации лидов.</li>
+              <li>Корректировка ставок по конвертирующим ключевым фразам.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Phase 2 -->
+      <div class="phase-card phase-2">
+        <div class="phase-header">
+          <div class="phase-title-group">
+            <span class="phase-badge">ФАЗА 2 &middot; ОКТЯБРЬ</span>
+            <h3 style="margin: 0; font-size: 1.25rem;">Экспансия в порты США, Meta Ads и первые закрытия сделок</h3>
+          </div>
+          <div style="font-family: var(--ds-font-mono); font-size: 0.8rem; color: var(--ds-warn);">Недели 5 — 8</div>
+        </div>
+        <div class="sprint-grid">
+          <div class="sprint-box">
+            <h5>Неделя 5: Запуск Google Ads US Ports</h5>
+            <ul>
+              <li>Запуск кампании C2 на хабы Калифорнии, Нью-Джерси и Индианы.</li>
+              <li>Тестирование спроса на FBA prep и контейнерный кросс-докинг.</li>
+              <li>Бюджет 400 €/мес, отслеживание стоимости клика CPC.</li>
+            </ul>
+          </div>
+
+          <div class="sprint-box">
+            <h5>Неделя 6: Запуск Meta Ads ретаргетинга</h5>
+            <ul>
+              <li>Запуск кампаний C4/C5 (видео-дожим со складов Бремена и Варшавы).</li>
+              <li>Аудитория: посетители сайта за 30 дней + Lookalike по базе 653 селлеров.</li>
+              <li>Снижение общего CPL за счет дожима теплого трафика.</li>
+            </ul>
+          </div>
+
+          <div class="sprint-box">
+            <h5>Неделя 7: Первые закрытые клиенты ОП</h5>
+            <ul>
+              <li>Выход сентябрьской когорты лидов на этап подписания договора (цикл 45 дней).</li>
+              <li>Первые 2–3 депозита по 200 € и отгрузка первых тестовых партий.</li>
+              <li>Фиксация первичной окупаемости вложенного рекламного бюджета.</li>
+            </ul>
+          </div>
+
+          <div class="sprint-box">
+            <h5>Неделя 8: Аудит воронки и оптимизация CPL</h5>
+            <ul>
+              <li>Анализ отказов на этапах квалификации ОП.</li>
+              <li>Отключение неконвертирующих групп объявлений.</li>
+              <li>Стабилизация стоимости лида на уровне 35–38 €.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Phase 3 -->
+      <div class="phase-card phase-3">
+        <div class="phase-header">
+          <div class="phase-title-group">
+            <span class="phase-badge">ФАЗА 3 &middot; НОЯБРЬ</span>
+            <h3 style="margin: 0; font-size: 1.25rem;">Окупаемость пилота, Масштабирование бюджета и AI/GEO SEO</h3>
+          </div>
+          <div style="font-family: var(--ds-font-mono); font-size: 0.8rem; color: var(--ds-good);">Недели 9 — 12</div>
+        </div>
+        <div class="sprint-grid">
+          <div class="sprint-box">
+            <h5>Неделя 9: Финансовый отчет для руководства</h5>
+            <ul>
+              <li>Сводный отчет по окупаемости 2 000 €: факт CPL, CAC, Win Rate и LTV.</li>
+              <li>Презентация результатов когорты для CEO Виталия.</li>
+              <li>Принятие решения об увеличении ежемесячного бюджета.</li>
+            </ul>
+          </div>
+
+          <div class="sprint-box">
+            <h5>Неделя 10: Масштабирование бюджета до 5 000 €+</h5>
+            <ul>
+              <li>Увеличение бюджетов на связки-лидеры (Search DE/PL + US Ports).</li>
+              <li>Подключение дополнительных локальных складов FFB.</li>
+              <li>Найм/выделение дополнительного менеджера по продажам.</li>
+            </ul>
+          </div>
+
+          <div class="sprint-box">
+            <h5>Неделя 11: Оптимизация под AI-Search (GEO)</h5>
+            <ul>
+              <li>Разметка schema.org/LogisticsService и внедрение <code>llms.txt</code>.</li>
+              <li>Усиление присутствия FFB в выдачах ChatGPT, Perplexity и Claude.</li>
+              <li>Капитализация конверсионного канала AI (CR 12.41%).</li>
+            </ul>
+          </div>
+
+          <div class="sprint-box">
+            <h5>Неделя 12: Систематизация и дашборд KPI</h5>
+            <ul>
+              <li>Автоматический дашборд сквозной аналитики в реальном времени.</li>
+              <li>Регулярный регламент передачи лидов с гарантированным SLA ОП.</li>
+              <li>Формирование маркетингового бюджета на 2027 год.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- RACI Responsibility Matrix -->
+    <div class="ds-card">
+      <div class="ds-card-header">
+        <div>
+          <h3>Матрица распределения зон ответственности (RACI)</h3>
+          <div class="sub">Четкое разграничение задач между маркетингом, ОП и разработкой</div>
+        </div>
+      </div>
+      <div class="table-scroll">
+        <table class="modern-table">
+          <thead>
+            <tr>
+              <th>Блок задач</th>
+              <th>Маркетолог (Артём)</th>
+              <th>Отдел продаж (Ася / ОП)</th>
+              <th>Разработка / WMS</th>
+              <th>Руководство (Виталий)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><b>Сквозная аналитика и трекер</b></td>
+              <td><span class="pill good">Accountable (Ответственный)</span></td>
+              <td>Informed (Информирован)</td>
+              <td>Responsible (Внедрение кода)</td>
+              <td>Informed</td>
+            </tr>
+            <tr>
+              <td><b>Лендинги и Оффер</b></td>
+              <td><span class="pill good">Accountable (Копирайтинг, CRO)</span></td>
+              <td>Consulted (Обратная связь)</td>
+              <td>Responsible (Верстка)</td>
+              <td>Approve (Утверждение)</td>
+            </tr>
+            <tr>
+              <td><b>Рекламные кампании Google Ads</b></td>
+              <td><span class="pill good">Accountable (Ведение, оптимизация)</span></td>
+              <td>Consulted (Оценка качества лидов)</td>
+              <td>Informed</td>
+              <td>Informed</td>
+            </tr>
+            <tr>
+              <td><b>Квалификация лидов и закрытие сделок</b></td>
+              <td>Informed (Анализ конверсий)</td>
+              <td><span class="pill good">Accountable (Обработка лидов за 15 мин)</span></td>
+              <td>Informed</td>
+              <td>Informed</td>
+            </tr>
+            <tr>
+              <td><b>Финансовое масштабирование</b></td>
+              <td>Responsible (Расчет ROI и медиаплан)</td>
+              <td>Consulted (Пропускная способность)</td>
+              <td>Informed</td>
+              <td><span class="pill good">Accountable (Выделение бюджета)</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="ds-footer">
+    <div style="font-weight: 700; color: var(--ds-ink); margin-bottom: 6px;">Fulfillment-Box (FFB) &middot; Управленческий аудит и Стратегия 2026</div>
+    <div>Внутренний документ. Дорожная карта и регламент внедрения на 90 дней.</div>
+  </footer>
+
+  <script src="js/nav.js"></script>
+</body>
+</html>

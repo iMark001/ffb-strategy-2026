@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <script src="js/auth-gate.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRM-аудит Bitrix24 и Атрибуция — FFB Strategy 2026</title>
+  <meta name="description" content="Аудит Bitrix24 CRM для Fulfillment-Box и 4-х брендов группы, устранение разрыва сквозной аналитики.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700;800&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/design-system.css">
+  <style>
+    .code-block-wrap { position: relative; background: var(--ds-surface-2); border: 1px solid var(--ds-border); border-radius: var(--ds-radius); padding: 16px; margin: 14px 0; overflow-x: auto; }
+    .code-block-wrap pre { margin: 0; font-family: var(--ds-font-mono); font-size: 0.8rem; color: var(--ds-ink-soft); line-height: 1.5; }
+    .copy-btn { position: absolute; top: 12px; right: 12px; background: var(--ds-surface); border: 1px solid var(--ds-border); color: var(--ds-ink); font-family: var(--ds-font-body); font-size: 0.76rem; font-weight: 600; padding: 6px 12px; border-radius: 6px; cursor: pointer; transition: all .15s ease; }
+    .copy-btn:hover { background: var(--ds-accent-soft); color: var(--ds-accent-2); border-color: var(--ds-accent); }
+    
+    .ds-phase-toggle { display: flex; gap: 8px; margin: 20px 0; flex-wrap: wrap; }
+    .ds-phase-btn { padding: 9px 18px; border-radius: 999px; border: 1px solid var(--ds-border); background: var(--ds-surface); color: var(--ds-ink-soft); font-weight: 700; font-size: 0.85rem; cursor: pointer; transition: all 0.15s ease; }
+    .ds-phase-btn:hover { background: var(--ds-surface-2); color: var(--ds-ink); }
+    .ds-phase-btn.active { background: var(--ds-accent); color: #ffffff; border-color: var(--ds-accent); }
+    .ds-phase-panel { display: none; }
+    .ds-phase-panel.active { display: block; }
+  </style>
+</head>
+<body>
+
+    <!-- Top Navigation -->
+  <nav class="ds-nav">
+    <a class="ds-nav-brand" href="index.html">
+      <span class="dot"></span>
+      <span>FFB <span class="brand-sub">Strategy 2026</span></span>
+    </a>
+    <ul class="ds-nav-links" id="navLinks">
+      <li><a href="index.html">1. Диагностика</a></li>
+      <li><a href="traffic.html">2. Трафик</a></li>
+      <li><a href="landings.html">3. CRO / Лендинги</a></li>
+      <li><a href="offer.html">4. Оффер и УТП</a></li>
+      <li><a href="paid-ads.html">5. Медиаплан 2k€</a></li>
+      <li><a href="competitors-audit.html">6. TCF Бенчмарк</a></li>
+      <li><a href="competitors.html">7. База 76+ конкурентов</a></li>
+      <li><a href="crm.html">8. CRM-аудит</a></li>
+      <li><a href="unit-economics.html">9. Симулятор Unit-эк.</a></li>
+      <li><a href="roadmap.html">10. Roadmap 90д</a></li>
+      <li><a href="verification.html">11. Верификация</a></li>
+    </ul>
+    <div class="ds-nav-actions">
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-btn" id="navDropdownBtn">Разделы (11) <span class="caret">▾</span></button>
+        <div class="nav-dropdown-menu" id="navDropdownMenu">
+          <a href="index.html"><span>01</span> Диагностика и Контекст</a>
+          <a href="traffic.html"><span>02</span> Трафик и Аналитика (GA4 / SEO)</a>
+          <a href="landings.html"><span>03</span> Аудит посадочных страниц и CRO</a>
+          <a href="offer.html"><span>04</span> Офферная стратегия и УТП</a>
+          <a href="paid-ads.html"><span>05</span> Медиаплан на 2 000 € (Paid Ads)</a>
+          <a href="competitors-audit.html"><span>06</span> TCF Бенчмарк тарифов (25+ операторов)</a>
+          <a href="competitors.html"><span>07</span> Расширенная разведка (76+ компаний)</a>
+          <a href="crm.html"><span>08</span> CRM-аудит и Сквозная атрибуция</a>
+          <a href="unit-economics.html"><span>09</span> Симулятор Unit-экономики и ROI</a>
+          <a href="roadmap.html"><span>10</span> Дорожная карта на 90 дней</a>
+          <a href="verification.html"><span>11</span> Матрица верификации данных</a>
+        </div>
+      </div>
+      <button class="ds-nav-toggle" id="navToggle" aria-label="Меню">&#9776;</button>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="ds-wrap">
+
+    <section class="ds-hero">
+      <div class="ds-eyebrow">Раздел 07 &middot; CRM Bitrix24 и Сквозная Аналитика</div>
+      <h1>Аудит Bitrix24: 9 001 лид, воронки продаж и трекер атрибуции</h1>
+      <p class="lead">
+        Пакетная выгрузка REST API Bitrix24 выявила фундаментальный разрыв сквозной аналитики: <strong>97.4% лидов</strong> не имеют UTM-меток из-за архитектуры форм сайта. Разработан и подготовлен к интеграции модуль <code>full_attribution_tracker.js</code>.
+      </p>
+
+      <!-- Metrics Ribbon -->
+      <div class="metrics-ribbon">
+        <div class="metric-box">
+          <div class="metric-label">Лидов FFB за 12 месяцев</div>
+          <div class="metric-val text-accent">9 001</div>
+          <div class="metric-badge badge-win">🟢 Пакетный сбор API</div>
+          <div class="badge-source">📊 crm.lead.list (12 мес)</div>
+        </div>
+
+        <div class="metric-box">
+          <div class="metric-label">Лиды без UTM-меток</div>
+          <div class="metric-val text-bad">97.4%</div>
+          <div class="metric-badge badge-risk">🔴 Сквозной трекинг разорван</div>
+          <div class="badge-source">📊 Анализ UTM полей</div>
+        </div>
+
+        <div class="metric-box">
+          <div class="metric-label">Лиды без единой активности</div>
+          <div class="metric-val text-bad">46.9%</div>
+          <div class="metric-badge badge-risk">🔴 Потери ОП на первом этапе</div>
+          <div class="badge-source">📊 crm.activity.list</div>
+        </div>
+
+        <div class="metric-box">
+          <div class="metric-label">Суммы сделок в CRM</div>
+          <div class="metric-val text-warn">0.0 €</div>
+          <div class="metric-badge badge-neutral">⚪ Финансы ведутся в Excel</div>
+          <div class="badge-source">📊 crm.deal.list OPPORTUNITY</div>
+        </div>
+      </div>
+
+      <!-- Phase Toggle -->
+      <div class="ds-phase-toggle">
+        <button class="ds-phase-btn active" onclick="switchPhase('p1', this)">Фаза 1: Fulfillment-Box (Основной аудит)</button>
+        <button class="ds-phase-btn" onclick="switchPhase('p2', this)">Фаза 2: Здоровье воронок 4 брендов группы</button>
+        <button class="ds-phase-btn" onclick="switchPhase('p3', this)">Модуль full_attribution_tracker.js</button>
+      </div>
+    </section>
+
+    <!-- PANEL 1: FFB Main Audit -->
+    <div id="panel-p1" class="ds-phase-panel active">
+      
+      <!-- Lead Sources Table -->
+      <div class="ds-card">
+        <div class="ds-card-header">
+          <div>
+            <h3>Структура входящих источников лидов FFB (9 001 лид)</h3>
+            <div class="sub">Распределение по внутренним идентификаторам Bitrix24 SOURCE_ID</div>
+          </div>
+        </div>
+        <div class="table-scroll">
+          <table class="modern-table">
+            <thead>
+              <tr>
+                <th>Идентификатор / Источник</th>
+                <th>Канал</th>
+                <th>Объем лидов</th>
+                <th>Доля (%)</th>
+                <th>Статус разметки UTM</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><b>SOURCE_ID: 40</b></td>
+                <td>Прямой Email FFB</td>
+                <td>3 913</td>
+                <td>43.5%</td>
+                <td><span class="pill na">Без меток (прямой)</span></td>
+              </tr>
+              <tr>
+                <td><b>SOURCE_ID: 47</b></td>
+                <td>Формы сайта fulfillment-box.com</td>
+                <td>2 665</td>
+                <td>29.6%</td>
+                <td><span class="pill high">🔴 0% UTM (REST-разрыв)</span></td>
+              </tr>
+              <tr>
+                <td><b>SOURCE_ID: 39 / 53</b></td>
+                <td>Telegram боты FFB</td>
+                <td>880</td>
+                <td>9.8%</td>
+                <td><span class="pill na">Без deeplink меток</span></td>
+              </tr>
+              <tr>
+                <td><b>SOURCE_ID: 63</b></td>
+                <td>WhatsApp / Wazzup интеграция</td>
+                <td>642</td>
+                <td>7.1%</td>
+                <td><span class="pill na">Прямые чаты</span></td>
+              </tr>
+              <tr>
+                <td><b>SOURCE_ID: 27|OPENLINE</b></td>
+                <td>Онлайн-чат на сайте</td>
+                <td>408</td>
+                <td>4.5%</td>
+                <td><span class="pill warn">Частично реферер</span></td>
+              </tr>
+              <tr>
+                <td><b>SOURCE_ID: 88</b></td>
+                <td>Форма Get a Quote</td>
+                <td>164</td>
+                <td>1.8%</td>
+                <td><span class="pill high">🔴 0% UTM</span></td>
+              </tr>
+              <tr>
+                <td><b>SOURCE_ID: 72</b></td>
+                <td>Ответы на аутрич Amazon</td>
+                <td>95</td>
+                <td>1.1%</td>
+                <td><span class="pill good">Тегировано вручную</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Deals Pipelines Breakdown -->
+      <div class="ds-card">
+        <div class="ds-card-header">
+          <div>
+            <h3>Анализ 4 воронок сделок Fulfillment-Box</h3>
+            <div class="sub">Статистика закрытия, зависших сделок и конверсии (Win Rate)</div>
+          </div>
+        </div>
+        <div class="table-scroll">
+          <table class="modern-table">
+            <thead>
+              <tr>
+                <th>Воронка (Категория)</th>
+                <th>Всего сделок</th>
+                <th>Успешно (WON)</th>
+                <th>Проиграно (LOSE)</th>
+                <th>В процессе</th>
+                <th>Конверсия (Win Rate)</th>
+                <th>Диагноз</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><b>1: Услуги Преп центра</b></td>
+                <td>1 050</td>
+                <td>249</td>
+                <td>235</td>
+                <td>566</td>
+                <td><strong style="color: var(--ds-good);">23.7%</strong></td>
+                <td><span class="pill good">Рабочая воронка с хорошей конверсией</span></td>
+              </tr>
+              <tr>
+                <td><b>2: Logistic</b></td>
+                <td>15</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+                <td>26.7%</td>
+                <td><span class="pill na">Малый объем, точечные перевозки</span></td>
+              </tr>
+              <tr>
+                <td><b>12: Logistic new</b></td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>—</td>
+                <td><span class="pill na">Неиспользуемая пустая воронка</span></td>
+              </tr>
+              <tr>
+                <td><b>13: Главная воронка</b></td>
+                <td>406</td>
+                <td>2</td>
+                <td>1</td>
+                <td>403</td>
+                <td><strong style="color: var(--ds-bad);">0.5%</strong></td>
+                <td><span class="pill high">🔴 «Кладбище сделок» (99.3% зависло)</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- PANEL 2: Phase 2 Brands -->
+    <div id="panel-p2" class="ds-phase-panel">
+      <div class="ds-card">
+        <div class="ds-card-header">
+          <div>
+            <h3>CRM-аудит 4-х сестринских брендов группы (Фаза 2)</h3>
+            <div class="sub">Диагностика воронок вне направления Fulfillment-Box</div>
+          </div>
+        </div>
+        <div class="ds-grid-2">
+          <div style="background: var(--ds-surface-2); padding: 18px; border-radius: var(--ds-radius-sm);">
+            <b style="color: var(--ds-ink); font-size: 1rem;">1. Ersatzteilcheck.de</b>
+            <p style="color: var(--ds-ink-soft); font-size: 0.85rem; margin: 8px 0 0; line-height: 1.5;">
+              Интернет-магазин запчастей. Высокий объем входящих транзакций, преобладают быстрые продажи. Основная точка трения — ручная обработка возвратов и несовпадений артикулов.
+            </p>
+          </div>
+
+          <div style="background: var(--ds-surface-2); padding: 18px; border-radius: var(--ds-radius-sm);">
+            <b style="color: var(--ds-ink); font-size: 1rem;">2. Autovermietung Weserpark</b>
+            <p style="color: var(--ds-ink-soft); font-size: 0.85rem; margin: 8px 0 0; line-height: 1.5;">
+              Локальный автопрокат в Бремене. Высокая сезонная конверсия, быстрый цикл закрытия (1–3 дня). 85% лидов приходят по прямым звонкам и локальному поиску.
+            </p>
+          </div>
+
+          <div style="background: var(--ds-surface-2); padding: 18px; border-radius: var(--ds-radius-sm);">
+            <b style="color: var(--ds-ink); font-size: 1rem;">3. Geräteverleih Bremen</b>
+            <p style="color: var(--ds-ink-soft); font-size: 0.85rem; margin: 8px 0 0; line-height: 1.5;">
+              Аренда строительного и клинингового оборудования. Стабильная воронка повторных заказов от локальных B2B подрядчиков.
+            </p>
+          </div>
+
+          <div style="background: var(--ds-surface-2); padding: 18px; border-radius: var(--ds-radius-sm);">
+            <b style="color: var(--ds-ink); font-size: 1rem;">4. Aquade.eu</b>
+            <p style="color: var(--ds-ink-soft); font-size: 0.85rem; margin: 8px 0 0; line-height: 1.5;">
+              Сантехника и товары для дома. D2C интернет-магазин с интеграцией в маркетплейсы Amazon и Otto.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PANEL 3: Tracker Script & Architecture -->
+    <div id="panel-p3" class="ds-phase-panel">
+      <div class="ds-card" style="border: 1px solid var(--ds-accent);">
+        <div class="ds-card-header">
+          <div>
+            <h3>🚀 Инженерное решение: full_attribution_tracker.js</h3>
+            <div class="sub">Готовый скрипт захвата UTM, Click ID, AI-поисковиков и органики для Bitrix24</div>
+          </div>
+        </div>
+        
+        <p style="color: var(--ds-ink-soft); font-size: 0.9rem; line-height: 1.6;">
+          Скрипт автономно определяет источник захода селлера (Google Ads, Meta Ads, SEO Google/Yandex, ChatGPT/Claude, Каталоги), сохраняет First-Touch и Last-Touch параметры в Cookies/LocalStorage и автоматически вставляет их в скрытые поля всех форм сайта перед отправкой в Битрикс24.
+        </p>
+
+        <div class="code-block-wrap">
+          <button class="copy-btn" onclick="copyCode(this, 'tracker-code')">Копировать скрипт</button>
+          <pre id="tracker-code"><code>/**
+ * FFB Full Attribution Tracker v2.0
+ * Автономный захват UTM, Click ID (gclid, fbclid), AI-поисковиков и рефереров.
+ */
+(function() {
+  const COOKIE_EXPIRY_DAYS = 90;
+
+  function getQueryParam(param) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(param) || '';
+  }
+
+  function detectChannel() {
+    const utmSource = getQueryParam('utm_source');
+    const gclid = getQueryParam('gclid');
+    const fbclid = getQueryParam('fbclid');
+    const referrer = document.referrer.toLowerCase();
+
+    if (gclid) return { source: 'google', medium: 'cpc', campaign: getQueryParam('utm_campaign') || 'google_ads', click_id: gclid };
+    if (fbclid) return { source: 'facebook', medium: 'cpc', campaign: getQueryParam('utm_campaign') || 'meta_ads', click_id: fbclid };
+    if (utmSource) return { source: utmSource, medium: getQueryParam('utm_medium') || 'cpc', campaign: getQueryParam('utm_campaign') || 'campaign', click_id: '' };
+
+    if (referrer.includes('chatgpt.com') || referrer.includes('perplexity.ai') || referrer.includes('claude.ai')) {
+      return { source: 'ai_assistant', medium: 'organic_ai', campaign: 'ai_search', click_id: '' };
+    }
+    if (referrer.includes('google.')) return { source: 'google', medium: 'organic', campaign: 'seo', click_id: '' };
+    if (referrer.includes('yandex.')) return { source: 'yandex', medium: 'organic', campaign: 'seo', click_id: '' };
+    if (referrer) {
+      try {
+        const refDomain = new URL(referrer).hostname;
+        return { source: refDomain, medium: 'referral', campaign: 'catalog', click_id: '' };
+      } catch(e) {}
+    }
+    return { source: 'direct', medium: 'none', campaign: 'direct', click_id: '' };
+  }
+
+  const attribution = detectChannel();
+  localStorage.setItem('ffb_last_attribution', JSON.stringify(attribution));
+  if (!localStorage.getItem('ffb_first_attribution')) {
+    localStorage.setItem('ffb_first_attribution', JSON.stringify(attribution));
+  }
+
+  // Инъекция во все формы
+  document.addEventListener('submit', function(e) {
+    const form = e.target;
+    if (form.tagName === 'FORM') {
+      const data = JSON.parse(localStorage.getItem('ffb_last_attribution') || '{}');
+      for (const [key, val] of Object.entries(data)) {
+        let input = form.querySelector('input[name="' + key + '"]');
+        if (!input) {
+          input = document.createElement('input');
+          input.type = 'hidden';
+          input.name = key;
+          form.appendChild(input);
+        }
+        input.value = val;
+      }
+    }
+  }, true);
+})();</code></pre>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="ds-footer">
+    <div style="font-weight: 700; color: var(--ds-ink); margin-bottom: 6px;">Fulfillment-Box (FFB) &middot; Управленческий аудит и Стратегия 2026</div>
+    <div>Внутренний документ. Аудит Bitrix24 REST API и архитектура сквозной атрибуции.</div>
+  </footer>
+
+  <script src="js/nav.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    function switchPhase(phaseId, btn) {
+      document.querySelectorAll('.ds-phase-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.ds-phase-panel').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('panel-' + phaseId).classList.add('active');
+    }
+  </script>
+</body>
+</html>

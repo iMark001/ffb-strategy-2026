@@ -1,0 +1,844 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <script src="js/auth-gate.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Конкурентный аудит и TCF Бенчмарк — FFB Strategy 2026</title>
+  <meta name="description" content="Сравнительный аудит тарифов, индекс совокупных затрат (TCF) и battlecards отдела продаж против 25+ ключевых операторов EU, US, UK.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700;800&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/design-system.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    .filter-tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
+    .filter-btn {
+      background: var(--ds-surface-2);
+      border: 1px solid var(--ds-border);
+      color: var(--ds-ink-soft);
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .filter-btn:hover { background: var(--ds-surface-3); color: var(--ds-ink); }
+    .filter-btn.active {
+      background: var(--ds-accent);
+      color: #ffffff;
+      border-color: var(--ds-accent);
+      box-shadow: 0 2px 10px rgba(99, 102, 241, 0.35);
+    }
+    .advantage-cell { display: flex; flex-direction: column; gap: 4px; }
+    .advantage-desc { font-size: 0.76rem; color: var(--ds-ink-soft); line-height: 1.35; }
+  </style>
+</head>
+<body>
+
+    <!-- Top Navigation -->
+  <nav class="ds-nav">
+    <a class="ds-nav-brand" href="index.html">
+      <span class="dot"></span>
+      <span>FFB <span class="brand-sub">Strategy 2026</span></span>
+    </a>
+    <ul class="ds-nav-links" id="navLinks">
+      <li><a href="index.html">1. Диагностика</a></li>
+      <li><a href="traffic.html">2. Трафик</a></li>
+      <li><a href="landings.html">3. CRO / Лендинги</a></li>
+      <li><a href="offer.html">4. Оффер и УТП</a></li>
+      <li><a href="paid-ads.html">5. Медиаплан 2k€</a></li>
+      <li><a href="competitors-audit.html">6. TCF Бенчмарк</a></li>
+      <li><a href="competitors.html">7. База 76+ конкурентов</a></li>
+      <li><a href="crm.html">8. CRM-аудит</a></li>
+      <li><a href="unit-economics.html">9. Симулятор Unit-эк.</a></li>
+      <li><a href="roadmap.html">10. Roadmap 90д</a></li>
+      <li><a href="verification.html">11. Верификация</a></li>
+    </ul>
+    <div class="ds-nav-actions">
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-btn" id="navDropdownBtn">Разделы (11) <span class="caret">▾</span></button>
+        <div class="nav-dropdown-menu" id="navDropdownMenu">
+          <a href="index.html"><span>01</span> Диагностика и Контекст</a>
+          <a href="traffic.html"><span>02</span> Трафик и Аналитика (GA4 / SEO)</a>
+          <a href="landings.html"><span>03</span> Аудит посадочных страниц и CRO</a>
+          <a href="offer.html"><span>04</span> Офферная стратегия и УТП</a>
+          <a href="paid-ads.html"><span>05</span> Медиаплан на 2 000 € (Paid Ads)</a>
+          <a href="competitors-audit.html"><span>06</span> TCF Бенчмарк тарифов (25+ операторов)</a>
+          <a href="competitors.html"><span>07</span> Расширенная разведка (76+ компаний)</a>
+          <a href="crm.html"><span>08</span> CRM-аудит и Сквозная атрибуция</a>
+          <a href="unit-economics.html"><span>09</span> Симулятор Unit-экономики и ROI</a>
+          <a href="roadmap.html"><span>10</span> Дорожная карта на 90 дней</a>
+          <a href="verification.html"><span>11</span> Матрица верификации данных</a>
+        </div>
+      </div>
+      <button class="ds-nav-toggle" id="navToggle" aria-label="Меню">&#9776;</button>
+    </div>
+  </nav>
+
+  <!-- Main Content Wrap -->
+  <main class="ds-wrap">
+
+    <section class="ds-hero">
+      <div class="ds-eyebrow">Раздел 06 &middot; Стратегический конкурентный аудит</div>
+      <h1>Бенчмаркинг тарифов и Индекс совокупных затрат (TCF)</h1>
+      <p class="lead">
+        Сравнительный расчет реальных затрат селлера на <strong>1 000 отправлений в месяц</strong> (хранение 10 паллет + приемка 1 000 ед. + стикеровка FNSKU + упаковка и доставка). Анализ ключевых игроков рынка Европы, США и Великобритании и боевые карточки аргументов для отдела продаж.
+      </p>
+
+      <!-- Key Metrics Ribbon -->
+      <div class="metrics-ribbon">
+        <div class="metric-box">
+          <div class="metric-label">Экономия в Европе (Германия)</div>
+          <div class="metric-val text-good">до 26%</div>
+          <div class="metric-badge badge-win">🟢 Прямой немецкий договор DHL</div>
+          <div class="badge-source">📊 Сравнение корзины на 1 000 заказов</div>
+        </div>
+
+        <div class="metric-box">
+          <div class="metric-label">Экономия в США (Порты)</div>
+          <div class="metric-val text-good">до $900</div>
+          <div class="metric-badge badge-win">🟢 Склады CA/NJ vs ShipBob</div>
+          <div class="badge-source">📊 Расчет расконсолидации контейнеров</div>
+        </div>
+
+        <div class="metric-box">
+          <div class="metric-label">Входной порог / Депозит</div>
+          <div class="metric-val text-accent">200 € / $</div>
+          <div class="metric-badge badge-win">🟢 Против $2 000 у ShipBob</div>
+          <div class="badge-source">📊 Быстрый старт за 48 часов</div>
+        </div>
+
+        <div class="metric-box">
+          <div class="metric-label">Операторов в матрице</div>
+          <div class="metric-val text-accent">25+</div>
+          <div class="metric-badge badge-neutral">⚪ Детальная тарификация</div>
+          <div class="badge-source">📊 Рынки DE / PL / US / UK</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dynamic TCF Visual Chart -->
+    <div class="ds-card" style="margin-bottom: 24px;">
+      <div class="ds-card-header">
+        <div>
+          <h3 id="chart-tcf-title">Сравнение совокупных затрат селлера на 1 000 заказов/мес по всем операторам (€)</h3>
+          <div class="sub" id="chart-tcf-subtitle">Полный срез: Fulfillment-Box обеспечивает экономию до 26% в Европе и до $900 в США за счет прямых контрактов</div>
+        </div>
+      </div>
+      
+      <div class="filter-tabs">
+        <button class="filter-btn active" data-region="all">Все регионы</button>
+        <button class="filter-btn" data-region="eu">Германия и Польша (Европа)</button>
+        <button class="filter-btn" data-region="us">США и Канада</button>
+        <button class="filter-btn" data-region="uk">Великобритания (UK)</button>
+      </div>
+
+      <div class="chart-canvas-dynamic" style="min-height: 480px; position: relative;">
+        <canvas id="chart-tcf-benchmark"></canvas>
+      </div>
+    </div>
+
+    <!-- TCF Benchmark Table -->
+    <div class="ds-card">
+      <div class="ds-card-header">
+        <div>
+          <h3>Полная сравнительная матрица тарифов (Европа / США / Великобритания)</h3>
+          <div class="sub">Сравнение 25+ ключевых операторов рынка на корзине 1 000 отправлений в месяц</div>
+        </div>
+      </div>
+
+      <div class="table-scroll">
+        <table class="modern-table">
+          <thead>
+            <tr>
+              <th style="width: 18%;">Оператор и регион</th>
+              <th style="width: 11%;">Хранение (10 пал.)</th>
+              <th style="width: 12%;">Приемка (1k шт.)</th>
+              <th style="width: 14%;">Доставка (1k пос.)</th>
+              <th style="width: 12%;">Депозит / Порог</th>
+              <th style="width: 12%;">Корзина / мес.</th>
+              <th style="width: 21%;">Преимущество Fulfillment-Box</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- FFB DE/PL -->
+            <tr class="comp-row" data-region="eu" style="background: rgba(99, 102, 241, 0.08); font-weight: 700;">
+              <td><strong style="color: var(--ds-accent-2);">Fulfillment-Box (DE/PL)</strong></td>
+              <td>210 € <span style="font-size: 0.72rem; color: var(--ds-ink-faint);">(21€/пал)</span></td>
+              <td>210 € <span style="font-size: 0.72rem; color: var(--ds-ink-faint);">(0.21€/ед)</span></td>
+              <td>3 800 € <span style="font-size: 0.72rem; color: var(--ds-accent-2);">(DHL/Warenpost)</span></td>
+              <td><span class="pill good">200 € депозит</span></td>
+              <td><strong style="color: var(--ds-good); font-size: 1.05rem;">4 220 €</strong></td>
+              <td>
+                <div class="advantage-cell">
+                  <span class="pill good">🟢 Базовый эталон</span>
+                  <span class="advantage-desc">Прямой контракт DHL, старт за 48ч, бесплатная WMS</span>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Byrd -->
+            <tr class="comp-row" data-region="eu">
+              <td><strong>Byrd (Германия / 12 хабов)</strong></td>
+              <td>~350 €</td>
+              <td>~450 €</td>
+              <td>~4 300 €</td>
+              <td>От 500 зак/мес</td>
+              <td><strong>~5 100 €</strong> <span style="color: var(--ds-bad); font-size: 0.75rem;">(+20.8%)</span></td>
+              <td>
+                <div class="advantage-cell">
+                  <span class="pill good">🟢 FFB выгоднее на 880 €</span>
+                  <span class="advantage-desc">FFB запускает за 48ч (Byrd онбордит 3–4 нед)</span>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Hive -->
+            <tr class="comp-row" data-region="eu">
+              <td><strong>Hive (Германия, Берлин)</strong></td>
+              <td>~380 €</td>
+              <td>~490 €</td>
+              <td>~4 450 €</td>
+              <td>Отбор брендов</td>
+              <td><strong>~5 320 €</strong> <span style="color: var(--ds-bad); font-size: 0.75rem;">(+26.0%)</span></td>
+              <td>
+                <div class="advantage-cell">
+                  <span class="pill good">🟢 Саппорт 24/7 в Telegram</span>
+                  <span class="advantage-desc">Hive не дает персонального менеджера в чате</span>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Wapi -->
+            <tr class="comp-row" data-region="eu">
+              <td><strong>Wapi (Пан-Европа)</strong></td>
+              <td>~300 €</td>
+              <td>~420 €</td>
+              <td>~4 600 €</td>
+              <td>По запросу</td>
+              <td><strong>~5 320 €</strong> <span style="color: var(--ds-bad); font-size: 0.75rem;">(+26.0%)</span></td>
+              <td>
+                <div class="advantage-cell">
+                  <span class="pill good">🟢 Свои склады</span>
+                  <span class="advantage-desc">Wapi — брокер, FFB управляет своими складами</span>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Monta -->
+            <tr class="comp-row" data-region="eu">
+              <td><strong>Monta (Нидерланды / DE)</strong></td>
+              <td>По запросу</td>
+              <td>По запросу</td>
+              <td>~4 200 €</td>
+              <td>Без пакетов</td>
+              <td><strong>~4 950 €</strong></td>
+              <td>
+                <div class="advantage-cell">
+                  <span class="pill good">🟢 WMS бесплатно</span>
+                  <span class="advantage-desc">Monta тарифицирует софт отдельно</span>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Frisbo -->
+            <tr class="comp-row" data-region="eu">
+              <td><strong>Frisbo (Восточная Европа)</strong></td>
+              <td>По запросу</td>
+              <td>По запросу</td>
+              <td>~4 400 €</td>
+              <td>От 1 000 зак/мес</td>
+              <td><strong>~5 150 €</strong></td>
+              <td>
+                <div class="advantage-cell">
+                  <span class="pill good">🟢 Контроль качества</span>
+                  <span class="advantage-desc">Frisbo — сеть партнеров, FFB — свои штатные хабы</span>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Fulfillment Europe / FHB -->
+            <tr class="comp-row" data-region="eu">
+              <td><strong>Fulfillment Europe / FHB</strong></td>
+              <td>За короб/пал.</td>
+              <td>По товарам</td>
+              <td>~4 350 €</td>
+              <td>По запросу</td>
+              <td><strong>~5 050 €</strong></td>
+              <td>
+                <div class="advantage-cell">
+                  <span class="pill good">🟢 Гибкость под FBA</span>
+                  <span class="advantage-desc">FFB специализируется на Amazon FBA/FBM под ключ</span>
+                </div>
+              </td>
+            </tr>
+
+            <!-- FIEGE -->
+            <tr class="comp-row" data-region="eu">
+              <td><strong>FIEGE (Германия)</strong></td>
+              <td>По запросу</td>
+              <td>По запросу</td>
+              <td>~4 400 €</td>
+              <td>От 1 000 зак.</td>
+              <td><strong>Enterprise</strong></td>
+              <td>
+                <div class="advantage-cell">
+                  <span class="pill good">🟢 Доступно для SMB</span>
+                  <span class="advantage-desc">FIEGE берет только огромные объемы (10k+)</span>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Salesupply -->
+            <tr class="comp-row" data-region="eu">
+              <td><strong>Salesupply (Германия / NL)</strong></td>
+              <td>По факту</td>
+              <td>По факту</td>
+              <td>~4 300 €</td>
+              <td>Без фикс. сборов</td>
+              <td><strong>~5 000 €</strong></td>
+              <td>
+                <div class="advantage-cell">
+                  <span class="pill good">🟢 Прайс в Германии</span>
+                  <span class="advantage-desc">Прямой немецкий договор DHL у FFB выгоднее</span>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Beckmann -->
+            <tr class="comp-row" data-region="eu">
+              <td><strong>Beckmann (Германия, Кёльн)</strong></td>
+              <td>За м³</td>
+              <td>За шт. + упак.</td>
+              <td>Счет + сбор</td>
+              <td>Лимит 100 (Closed)</td>
+              <td><strong>~4 800 €</strong></td>
+              <td>
+                <div class="advantage-cell">
+                  <span class="pill good">🟢 Открытый набор</span>
+                  <span class="advantage-desc">Набор в Beckmann закрыт до 2027 г.; FFB открыт</span>
+                </div>
+              </td>
+            </tr>
+
+            <!-- 3LP -->
+            <tr class="comp-row" data-region="eu">
+              <td><strong>3LP (Польша)</strong></td>
+              <td>По запросу</td>
+              <td>По запросу</td>
+              <td>~4 100 € (InPost)</td>
+              <td>Только смета</td>
+              <td><strong>По запросу</strong></td>
+              <td>
+                <div class="advantage-cell">
+                  <span class="pill good">🟢 Пан-Европа</span>
+                  <span class="advantage-desc">3LP только в Польше, FFB дает ЕС и США</span>
+                </div>
+              </td>
+            </tr>
+
+            <!-- FFB US -->
+            <tr class="comp-row" data-region="us" style="background: rgba(99, 102, 241, 0.08); font-weight: 700;">
+              <td><strong style="color: var(--ds-accent-2);">Fulfillment-Box (США)</strong></td>
+              <td>$420 <span style="font-size: 0.72rem; color: var(--ds-ink-faint);">($42/пал)</span></td>
+              <td>$420 <span style="font-size: 0.72rem; color: var(--ds-ink-faint);">($0.42/ед)</span></td>
+              <td>$5 900 (USPS / UPS)</td>
+              <td><span class="pill good">200 $ депозит</span></td>
+              <td><strong style="color: var(--ds-good); font-size: 1.05rem;">$6 740</strong></td>
+              <td>
+                <div class="advantage-cell">
+                  <span class="pill good">🟢 Порты CA и NJ</span>
+                  <span class="advantage-desc">Расконсолидация контейнеров под Amazon FBA</span>
+                </div>
+              </td>
+            </tr>
+
+            <!-- ShipBob -->
+            <tr class="comp-row" data-region="us">
+              <td><strong>ShipBob (США / Global)</strong></td>
+              <td>~$450</td>
+              <td>~$480</td>
+              <td>~$6 710</td>
+              <td><span class="pill high">$2 000 депозит</span></td>
+              <td><strong>~$7 640</strong> <span style="color: var(--ds-bad); font-size: 0.75rem;">(+13.3%)</span></td>
+              <td>
+                <div class="advantage-cell">
+                  <span class="pill good">🟢 Депозит $200 vs $2000</span>
+                  <span class="advantage-desc">У ShipBob безликая тикетная система (ответ 48ч)</span>
+                </div>
+              </td>
+            </tr>
+
+            <!-- eFulfillment Service -->
+            <tr class="comp-row" data-region="us">
+              <td><strong>eFulfillment Service (США)</strong></td>
+              <td>За куб. фут</td>
+              <td>Pick&Pack</td>
+              <td>Тариф перевозч.</td>
+              <td>Без setup fee</td>
+              <td><strong>~$7 100</strong></td>
+              <td>
+                <div class="advantage-cell">
+                  <span class="pill good">🟢 Сеть хабов</span>
+                  <span class="advantage-desc">У eFS 1 склад в Мичигане; у FFB — CA, NJ, IN, TX</span>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Shipfusion -->
+            <tr class="comp-row" data-region="us">
+              <td><strong>Shipfusion (США / CA)</strong></td>
+              <td>По паллетам</td>
+              <td>First pick</td>
+              <td>~$6 400</td>
+              <td>От 2000+ зак.</td>
+              <td><strong>~$7 450</strong></td>
+              <td>
+                <div class="advantage-cell">
+                  <span class="pill good">🟢 Доступно для SMB</span>
+                  <span class="advantage-desc">Shipfusion отсекает клиентов с чеком менее 2k</span>
+                </div>
+              </td>
+            </tr>
+
+            <!-- AMZ Prep -->
+            <tr class="comp-row" data-region="us">
+              <td><strong>AMZ Prep (США / CA)</strong></td>
+              <td>~$400</td>
+              <td>$400 ($0.40/ед)</td>
+              <td>~$6 500</td>
+              <td>От 300 зак/мес</td>
+              <td><strong>~$7 300</strong> <span style="color: var(--ds-bad); font-size: 0.75rem;">(+8.3%)</span></td>
+              <td>
+                <div class="advantage-cell">
+                  <span class="pill na">⚪ Паритет FBA</span>
+                  <span class="advantage-desc">FFB дает единую WMS под Европу и США</span>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Cahoot -->
+            <tr class="comp-row" data-region="us">
+              <td><strong>Cahoot (США, P2P)</strong></td>
+              <td>За куб. фут</td>
+              <td>Почасово</td>
+              <td>По факту (−30%)</td>
+              <td>По запросу</td>
+              <td><strong>~$7 000</strong></td>
+              <td>
+                <div class="advantage-cell">
+                  <span class="pill good">🟢 Своя WMS</span>
+                  <span class="advantage-desc">Cahoot — сеть чужих складов, FFB — свои хабы</span>
+                </div>
+              </td>
+            </tr>
+
+            <!-- GoBolt -->
+            <tr class="comp-row" data-region="us">
+              <td><strong>GoBolt (США / CA)</strong></td>
+              <td>По запросу</td>
+              <td>По запросу</td>
+              <td>По запросу</td>
+              <td>От 3000 зак.</td>
+              <td><strong>Enterprise</strong></td>
+              <td>
+                <div class="advantage-cell">
+                  <span class="pill good">🟢 Низкий порог</span>
+                  <span class="advantage-desc">GoBolt берет только крупных селлеров и мебель</span>
+                </div>
+              </td>
+            </tr>
+
+            <!-- BetaPrep -->
+            <tr class="comp-row" data-region="us">
+              <td><strong>BetaPrep (США / CA)</strong></td>
+              <td>$300 ($30/пал)</td>
+              <td>$690 ($0.69/ед)</td>
+              <td>~$6 600</td>
+              <td>От 500 единиц</td>
+              <td><strong>~$7 590</strong></td>
+              <td>
+                <div class="advantage-cell">
+                  <span class="pill good">🟢 Приемка выгоднее</span>
+                  <span class="advantage-desc">Приемка FFB $0.42/ед против $0.69/ед у BetaPrep</span>
+                </div>
+              </td>
+            </tr>
+
+            <!-- FF Logistics -->
+            <tr class="comp-row" data-region="us">
+              <td><strong>FF Logistics (Китай / США)</strong></td>
+              <td>$0.30/CBM/день</td>
+              <td>от $0.18/зак</td>
+              <td>Экспресс из Китая</td>
+              <td>Без минимума</td>
+              <td><strong>~$6 200</strong></td>
+              <td>
+                <div class="advantage-cell">
+                  <span class="pill good">🟢 Склады в США</span>
+                  <span class="advantage-desc">У FF Logistics нет физ. складов в США (только Китай)</span>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Huboo -->
+            <tr class="comp-row" data-region="uk">
+              <td><strong>Huboo (Великобритания)</strong></td>
+              <td>2 мес. free, ~£300</td>
+              <td>от £1.36/поз</td>
+              <td>~£3 900 (Royal Mail)</td>
+              <td><span class="pill high">Мин. счёт £1000/мес</span></td>
+              <td><strong>~£4 560</strong></td>
+              <td>
+                <div class="advantage-cell">
+                  <span class="pill good">🟢 Низкий мин. чек</span>
+                  <span class="advantage-desc">Мин. счет FFB £100/мес против £1000 у Huboo</span>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Delta Fulfilment -->
+            <tr class="comp-row" data-region="uk">
+              <td><strong>Delta Fulfilment (UK)</strong></td>
+              <td>По запросу</td>
+              <td>По запросу</td>
+              <td>По запросу</td>
+              <td>Не опубликовано</td>
+              <td><strong>По запросу</strong></td>
+              <td>
+                <div class="advantage-cell">
+                  <span class="pill na">⚪ Франшиза UK</span>
+                  <span class="advantage-desc">В UK у FFB франшизный склад (не рекламируем)</span>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Asendia UK -->
+            <tr class="comp-row" data-region="uk">
+              <td><strong>Asendia UK (UK)</strong></td>
+              <td>По запросу</td>
+              <td>По запросу</td>
+              <td>4 тариф. уровня</td>
+              <td>По запросу</td>
+              <td><strong>По запросу</strong></td>
+              <td>
+                <div class="advantage-cell">
+                  <span class="pill na">⚪ Почтовый сервис</span>
+                  <span class="advantage-desc">Asendia — почта, сложный онбординг</span>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Comparative Criteria Matrix -->
+    <div class="ds-card" style="margin-top: 28px;">
+      <div class="ds-card-header">
+        <div>
+          <h3>Сравнительная матрица по стратегическим критериям</h3>
+          <div class="sub">Ключевые отличия FFB от типов конкурентов на рынках присутствия</div>
+        </div>
+      </div>
+      <div class="table-scroll">
+        <table class="modern-table">
+          <thead>
+            <tr>
+              <th>Критерий / Параметр</th>
+              <th>Byrd / Hive (Германия)</th>
+              <th>Wapi (Агрегаторы)</th>
+              <th>ShipBob / US 3PL (США)</th>
+              <th>Fulfillment-Box (FFB)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><b>Собственная инфраструктура</b></td>
+              <td>Партнерская сеть складов</td>
+              <td>Чужие склады по субаренде</td>
+              <td>Собственные + франшизные</td>
+              <td><strong style="color: var(--ds-good);">Собственные хабы DE, PL, US (CA/NJ/IN)</strong></td>
+            </tr>
+            <tr>
+              <td><b>Минимальный порог входа</b></td>
+              <td>От 1 000+ заказов/мес</td>
+              <td>От 500 заказов/мес</td>
+              <td>От $2 000 депозита</td>
+              <td><strong style="color: var(--ds-good);">Без жестких минималок (фокус на рост)</strong></td>
+            </tr>
+            <tr>
+              <td><b>Скорость онбординга</b></td>
+              <td>3–4 недели</td>
+              <td>2–3 недели</td>
+              <td>2–4 недели</td>
+              <td><strong style="color: var(--ds-good);">48 часов (экспресс-интеграция WMS)</strong></td>
+            </tr>
+            <tr>
+              <td><b>Прямые контракты DHL</b></td>
+              <td>Нет (стандартные тарифы)</td>
+              <td>Наценка посредника</td>
+              <td>Только американские службы</td>
+              <td><strong style="color: var(--ds-good);">Прямой немецкий контракт DHL FFB</strong></td>
+            </tr>
+            <tr>
+              <td><b>Русскоязычный саппорт</b></td>
+              <td>Нет (только EN/DE тикеты)</td>
+              <td>Ограниченно</td>
+              <td>Нет (тикетная система 48ч)</td>
+              <td><strong style="color: var(--ds-good);">Выделенный менеджер в Telegram 24/7</strong></td>
+            </tr>
+            <tr>
+              <td><b>Скидки на чек от 1 000 €</b></td>
+              <td>Только от 5 000 €/мес</td>
+              <td>Нет</td>
+              <td>Нет</td>
+              <td><strong style="color: var(--ds-good);">Индивидуальная шкала согласования</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Battlecards Section -->
+    <h2 style="font-size: 1.35rem; font-weight: 800; margin: 36px 0 16px;">
+      Боевые карточки для победы в сделках (Battlecards ОП)
+    </h2>
+
+    <div class="ds-grid-2">
+      
+      <!-- Battlecard 1: Germany -->
+      <div class="triad-card" style="margin-bottom: 16px;">
+        <div class="triad-col triad-problem">
+          <div class="triad-badge badge-problem">🥊 Против Byrd / Hive (Германия)</div>
+          <div class="triad-title">Слабости оппонентов</div>
+          <div class="triad-desc">
+            Долгий онбординг (3–4 недели), строгие ограничения по категориям (фокус строго на Shopify D2C), отсутствие русскоязычного саппорта в мессенджерах.
+          </div>
+        </div>
+        <div class="triad-col triad-proposal">
+          <div class="triad-badge badge-proposal">🟢 Ударные аргументы FFB</div>
+          <div class="triad-title">Скорость и персональный контакт</div>
+          <div class="triad-desc">
+            «FFB запускает отгрузки за 48 часов. Бесплатная интеграция с Ysell WMS. Прямой немецкий договор DHL без скрытых комиссий. Персональный менеджер в Telegram 24/7».
+          </div>
+        </div>
+      </div>
+
+      <!-- Battlecard 2: USA -->
+      <div class="triad-card" style="margin-bottom: 16px;">
+        <div class="triad-col triad-problem">
+          <div class="triad-badge badge-problem">🥊 Против ShipBob / Red Stag (США)</div>
+          <div class="triad-title">Слабости оппонентов</div>
+          <div class="triad-desc">
+            Огромный входной депозит ($2 000), долгий ответ техподдержки по тикетам (24–48 часов), дорогая расконсолидация контейнеров в портах.
+          </div>
+        </div>
+        <div class="triad-col triad-proposal">
+          <div class="triad-badge badge-proposal">🟢 Ударные аргументы FFB</div>
+          <div class="triad-title">Портовая логистика и доступный старт</div>
+          <div class="triad-desc">
+            «Склады FFB расположены прямо в портах Long Beach (CA) и Newark (NJ). Депозит всего $200. Приемка и расконсолидация контейнеров под ключ под Amazon FBA».
+          </div>
+        </div>
+      </div>
+
+      <!-- Battlecard 3: Aggregators -->
+      <div class="triad-card" style="margin-bottom: 16px;">
+        <div class="triad-col triad-problem">
+          <div class="triad-badge badge-problem">🥊 Против Wapi (Пан-Европа Агрегаторы)</div>
+          <div class="triad-title">Слабости оппонентов</div>
+          <div class="triad-desc">
+            Wapi — это брокер/маркетплейс, не контролирующий процессы на складах-субподрядчиках. Риски порчи и потери товара.
+          </div>
+        </div>
+        <div class="triad-col triad-proposal">
+          <div class="triad-badge badge-proposal">🟢 Ударные аргументы FFB</div>
+          <div class="triad-title">Собственные хабы и ответственность</div>
+          <div class="triad-desc">
+            «FFB в Германии (Бремен/KDS) и Польше оперирует СОБСТВЕННЫМИ складами и штатной командой. Вы работаете напрямую с исполнителем без посреднических наценок».
+          </div>
+        </div>
+      </div>
+
+      <!-- Battlecard 4: Focus Warning -->
+      <div class="triad-card" style="margin-bottom: 16px;">
+        <div class="triad-col triad-problem">
+          <div class="triad-badge badge-problem">⚠️ Зона операционной осторожности</div>
+          <div class="triad-title">Франшизные склады (Франция / UK)</div>
+          <div class="triad-desc">
+            Франшизный склад в Париже и склад в UK имеют высокую стоимость отправки («100 Parcel»).
+          </div>
+        </div>
+        <div class="triad-col triad-impact">
+          <div class="triad-badge badge-impact">🔵 Регламент ОП</div>
+          <div class="triad-title">Перенаправление на хаб Германии</div>
+          <div class="triad-desc">
+            Не давать платную рекламу на локальные склады Франции/UK. Перенаправлять поток пан-европейских селлеров на собственный мощный хаб в Бремене с доставкой DHL по всему ЕС.
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <footer class="ds-footer">
+    <div style="font-weight: 700; color: var(--ds-ink); margin-bottom: 6px;">Fulfillment-Box (FFB) &middot; Управленческий аудит и Стратегия 2026</div>
+    <div>Внутренний документ. Бенчмаркинг TCF и сравнительный аудит 25+ операторов.</div>
+  </footer>
+
+  <script src="js/nav.js"></script>
+  <script>
+    const regionalChartData = {
+      all: {
+        title: 'Сравнение совокупных затрат селлера на 1 000 заказов/мес по всем операторам (€)',
+        subtitle: 'Полный срез: Fulfillment-Box обеспечивает экономию до 26% в Европе и до $900 в США за счет прямых контрактов',
+        labels: [
+          'Fulfillment-Box (Германия/Польша)', 'Beckmann (Германия, Кёльн)', 'Monta (Нидерланды/Германия)',
+          'Salesupply (Германия/NL)', 'Fulfillment Europe / FHB', 'Byrd (Германия/12 хабов)',
+          'Frisbo (Восточная Европа)', 'Hive (Германия, Берлин)', 'Wapi (Пан-Европа)',
+          'FF Logistics (Китай/США)', 'FIEGE (Германия Enterprise)', 'Fulfillment-Box (Хабы в США)',
+          'Cahoot (США, P2P сеть)', 'eFulfillment Service (США)', 'AMZ Prep (США/Канада)',
+          'Shipfusion (США CA/NV)', 'BetaPrep (США/Канада)', 'ShipBob (США/Global)', 'GoBolt (США Enterprise)'
+        ],
+        data: [4220, 4800, 4950, 5000, 5050, 5100, 5150, 5320, 5320, 6200, 6200, 6740, 7000, 7100, 7300, 7450, 7590, 7640, 8200],
+        colors: [
+          '#10b981', '#94a3b8', '#94a3b8', '#94a3b8', '#94a3b8', '#94a3b8', '#94a3b8', '#94a3b8', '#94a3b8',
+          '#64748b', '#64748b', '#6366f1', '#94a3b8', '#94a3b8', '#94a3b8', '#94a3b8', '#94a3b8', '#ef4444', '#64748b'
+        ],
+        unit: '€'
+      },
+      eu: {
+        title: 'Германия и Центральная Европа: Затраты на 1 000 заказов/мес (€)',
+        subtitle: 'Fulfillment-Box лидирует по TCF (4 220 €) благодаря прямому немецкому контракту DHL и низкой ставке приемки',
+        labels: [
+          'Fulfillment-Box (Германия/Польша)', 'Beckmann Systemberatung (Кёльн)', 'Monta (Нидерланды / DE)',
+          'Salesupply (Германия / NL)', 'Fulfillment Europe / FHB Group', 'Byrd (Германия / 12 хабов)',
+          'Frisbo (Восточная Европа)', 'Hive (Германия, Берлин)', 'Wapi (Пан-Европа Агрегатор)', 'FIEGE (Германия Enterprise)'
+        ],
+        data: [4220, 4800, 4950, 5000, 5050, 5100, 5150, 5320, 5320, 6200],
+        colors: ['#10b981', '#94a3b8', '#94a3b8', '#94a3b8', '#94a3b8', '#94a3b8', '#94a3b8', '#ef4444', '#ef4444', '#64748b'],
+        unit: '€'
+      },
+      us: {
+        title: 'США и Северная Америка: Затраты на 1 000 заказов/мес ($)',
+        subtitle: 'FFB ($6 740) выигрывает у ShipBob ($7 640) за счет портовой расконсолидации и депозита $200 против $2 000',
+        labels: [
+          'FF Logistics (Китай / экспресс)', 'Fulfillment-Box (Хабы CA, NJ, IN, TX)', 'Cahoot (США, P2P сеть)',
+          'eFulfillment Service (Мичиган)', 'AMZ Prep (США / Канада)', 'Shipfusion (Чикаго / Лас-Вегас)',
+          'BetaPrep (США / Канада)', 'ShipBob (США / Global)', 'GoBolt (США Enterprise)'
+        ],
+        data: [6200, 6740, 7000, 7100, 7300, 7450, 7590, 7640, 8200],
+        colors: ['#64748b', '#6366f1', '#94a3b8', '#94a3b8', '#94a3b8', '#94a3b8', '#94a3b8', '#ef4444', '#64748b'],
+        unit: '$'
+      },
+      uk: {
+        title: 'Великобритания (UK): Затраты на 1 000 заказов/мес (£)',
+        subtitle: 'Сравнение Huboo, Core Fulfilment, Delta и Asendia UK с транзитной моделью FFB через хаб в Германии',
+        labels: [
+          'Fulfillment-Box (Транзит из DE хаба)', 'Huboo (Великобритания, Бристоль)', 'Core Fulfilment (UK, Crewe)',
+          'Delta Fulfilment (UK Франшиза)', 'Asendia UK (Почтовый оператор)'
+        ],
+        data: [3650, 4560, 4750, 4900, 5200],
+        colors: ['#10b981', '#ef4444', '#94a3b8', '#94a3b8', '#64748b'],
+        unit: '£'
+      }
+    };
+
+    let tcfChartInstance = null;
+
+    function renderTcfChart(regionKey) {
+      const chartData = regionalChartData[regionKey] || regionalChartData.all;
+      const chartCanvas = document.getElementById('chart-tcf-benchmark');
+      const titleEl = document.getElementById('chart-tcf-title');
+      const subtitleEl = document.getElementById('chart-tcf-subtitle');
+      const containerEl = document.querySelector('.chart-canvas-dynamic');
+
+      if (titleEl) titleEl.textContent = chartData.title;
+      if (subtitleEl) subtitleEl.textContent = chartData.subtitle;
+
+      const dynamicHeight = Math.max(300, chartData.labels.length * 30 + 60);
+      if (containerEl) containerEl.style.height = dynamicHeight + 'px';
+
+      if (tcfChartInstance) tcfChartInstance.destroy();
+
+      if (chartCanvas && typeof Chart !== 'undefined') {
+        tcfChartInstance = new Chart(chartCanvas, {
+          type: 'bar',
+          data: {
+            labels: chartData.labels,
+            datasets: [{
+              label: 'Затраты на 1 000 заказов/мес (' + chartData.unit + ')',
+              data: chartData.data,
+              backgroundColor: chartData.colors,
+              borderRadius: 4,
+              barThickness: 16
+            }]
+          },
+          options: {
+            indexAxis: 'y',
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: { display: false },
+              tooltip: {
+                callbacks: {
+                  label: function(context) {
+                    return context.parsed.x.toLocaleString('ru-RU') + ' ' + chartData.unit + ' / месяц';
+                  }
+                }
+              }
+            },
+            scales: {
+              x: {
+                grid: { color: 'rgba(255, 255, 255, 0.06)' },
+                ticks: {
+                  color: '#94a3b8',
+                  font: { family: "'IBM Plex Mono', monospace", size: 11 },
+                  callback: function(value) { return value.toLocaleString('ru-RU') + ' ' + chartData.unit; }
+                }
+              },
+              y: {
+                grid: { display: false },
+                ticks: {
+                  color: '#f8fafc',
+                  font: { family: "'Public Sans', sans-serif", size: 11.5, weight: 600 }
+                }
+              }
+            }
+          }
+        });
+      }
+    }
+
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const compRows = document.querySelectorAll('.comp-row');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const region = btn.getAttribute('data-region');
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        compRows.forEach(row => {
+          const rowRegion = row.getAttribute('data-region');
+          if (region === 'all' || rowRegion === region || rowRegion === 'all') {
+            row.style.display = '';
+          } else {
+            row.style.display = 'none';
+          }
+        });
+
+        renderTcfChart(region);
+      });
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderTcfChart('all');
+    });
+  </script>
+</body>
+</html>

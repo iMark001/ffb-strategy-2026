@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <script src="js/auth-gate.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FFB Strategy 2026 — Управленческий аудит и План масштабирования</title>
+  <meta name="description" content="Стратегический аудит маркетинга, сквозной аналитики, CRM и план платного масштабирования Fulfillment-Box 2026.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700;800&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/design-system.css">
+</head>
+<body>
+
+  <!-- Top Navigation -->
+  <!-- Top Navigation -->
+  <nav class="ds-nav">
+    <a class="ds-nav-brand" href="index.html">
+      <span class="dot"></span>
+      <span>FFB <span class="brand-sub">Strategy 2026</span></span>
+    </a>
+    <ul class="ds-nav-links" id="navLinks">
+      <li><a href="index.html">1. Диагностика</a></li>
+      <li><a href="traffic.html">2. Трафик</a></li>
+      <li><a href="landings.html">3. CRO / Лендинги</a></li>
+      <li><a href="offer.html">4. Оффер и УТП</a></li>
+      <li><a href="paid-ads.html">5. Медиаплан 2k€</a></li>
+      <li><a href="competitors-audit.html">6. TCF Бенчмарк</a></li>
+      <li><a href="competitors.html">7. База 76+ конкурентов</a></li>
+      <li><a href="crm.html">8. CRM-аудит</a></li>
+      <li><a href="unit-economics.html">9. Симулятор Unit-эк.</a></li>
+      <li><a href="roadmap.html">10. Roadmap 90д</a></li>
+      <li><a href="verification.html">11. Верификация</a></li>
+    </ul>
+    <div class="ds-nav-actions">
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-btn" id="navDropdownBtn">Разделы (11) <span class="caret">▾</span></button>
+        <div class="nav-dropdown-menu" id="navDropdownMenu">
+          <a href="index.html"><span>01</span> Диагностика и Контекст</a>
+          <a href="traffic.html"><span>02</span> Трафик и Аналитика (GA4 / SEO)</a>
+          <a href="landings.html"><span>03</span> Аудит посадочных страниц и CRO</a>
+          <a href="offer.html"><span>04</span> Офферная стратегия и УТП</a>
+          <a href="paid-ads.html"><span>05</span> Медиаплан на 2 000 € (Paid Ads)</a>
+          <a href="competitors-audit.html"><span>06</span> TCF Бенчмарк тарифов (25+ операторов)</a>
+          <a href="competitors.html"><span>07</span> Расширенная разведка (76+ компаний)</a>
+          <a href="crm.html"><span>08</span> CRM-аудит и Сквозная атрибуция</a>
+          <a href="unit-economics.html"><span>09</span> Симулятор Unit-экономики и ROI</a>
+          <a href="roadmap.html"><span>10</span> Дорожная карта на 90 дней</a>
+          <a href="verification.html"><span>11</span> Матрица верификации данных</a>
+        </div>
+      </div>
+      <button class="ds-nav-toggle" id="navToggle" aria-label="Меню">&#9776;</button>
+    </div>
+  </nav>
+
+  <!-- Main Container -->
+  <main class="ds-wrap">
+
+    <!-- Hero Section -->
+    <section class="ds-hero">
+      <div class="ds-eyebrow">Стратегический доклад руководству FFB &middot; 2026</div>
+      <h1>Перезапуск лидогенерации FFB после 2-х лет органического режима</h1>
+      <p class="lead">
+        Компания более 24 месяцев не вела платную рекламу, полагаясь на сарафанное радио. В условиях падения органического SEO-трафика на <strong>−51.5%</strong> пилотный запуск платного крана на <strong>2 000 €</strong> с жестким контролем сквозной атрибуции защищает инвестиции и обеспечивает прогнозируемый приток крупных селлеров.
+      </p>
+
+      <!-- Key Metrics Ribbon -->
+      <div class="metrics-ribbon">
+        <div class="metric-box">
+          <div class="metric-label">Активная база клиентов</div>
+          <div class="metric-val text-good">653</div>
+          <div class="metric-badge badge-win">🟢 Проверенные платящие селлеры</div>
+          <div class="badge-source">📊 Источник: База клиентов FFbox.xlsx</div>
+        </div>
+
+        <div class="metric-box">
+          <div class="metric-label">Крупные селлеры (>1000 €/мес)</div>
+          <div class="metric-val text-accent">68 <span style="font-size: 1rem; color: var(--ds-ink-soft);">(10.4%)</span></div>
+          <div class="metric-badge badge-win">🟢 Средний чек: 5 623 €/мес</div>
+          <div class="badge-source">📊 Источник: Выгрузка ОП 2025/2026</div>
+        </div>
+
+        <div class="metric-box">
+          <div class="metric-label">Входящие лиды в CRM (12 мес)</div>
+          <div class="metric-val text-bad">9 001</div>
+          <div class="metric-badge badge-risk">🔴 97.4% без UTM-меток</div>
+          <div class="badge-source">📊 Источник: Bitrix24 REST API</div>
+        </div>
+
+        <div class="metric-box">
+          <div class="metric-label">Стартовый депозит клиента</div>
+          <div class="metric-val text-good">200 €</div>
+          <div class="metric-badge badge-win">🟢 Фиксация первичного успеха ОП</div>
+          <div class="badge-source">📊 Источник: Регламент ОП FFB</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Key Pillars (Problem -> Proposal -> Impact) -->
+    <section>
+      <h2 style="font-size: 1.35rem; font-weight: 800; margin-bottom: 1.25rem;">
+        Ключевые артерии бизнеса: «🔴 Проблема → 🟢 Предложение → 🔵 Эффект»
+      </h2>
+
+      <div class="triple-cards-grid">
+        <!-- Card 1 -->
+        <div class="triple-card">
+          <div class="triple-col triple-problem">
+            <div class="triple-tag tag-problem">🔴 Нюанс 1 • Трафик</div>
+            <div class="triple-title">Органика упала на −51.5%, реклама не велась 2 года</div>
+            <div class="triple-desc">
+              Поисковый трафик упал с 5 548 до 2 689 визитов/мес. Бизнес испытывает нехватку свежего потока и полностью зависит от сарафана.
+            </div>
+            <div class="badge-source">📊 GA4 + Semrush Domain Overview (срез 25.08.2026)</div>
+          </div>
+          <div class="triple-col triple-proposal">
+            <div class="triple-tag tag-proposal">🟢 Предложение</div>
+            <div class="triple-title">Контролируемый пилот Google Ads на 2 000 €</div>
+            <div class="triple-desc">
+              Запуск 2-х точечных потоков: (1) русскоязычные селлеры в ЕС (Германия/Польша) с высоким чеком и (2) селлеры портовых хабов США (Калифорния, Нью-Джерси, Индиана).
+            </div>
+          </div>
+          <div class="triple-col triple-impact">
+            <div class="triple-tag tag-impact">🔵 Ожидаемый эффект</div>
+            <div class="triple-title">53 целевые заявки → 3 селлера → 37 500 € LTV</div>
+            <div class="triple-desc">
+              Полная окупаемость вложенных 2 000 € на 45–60 день и чистый ROI более <strong>+350%</strong>.
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="triple-card">
+          <div class="triple-col triple-problem">
+            <div class="triple-tag tag-problem">🔴 Нюанс 2 • Сквозная аналитика</div>
+            <div class="triple-title">0% UTM-меток в формах сайта (REST-разрыв)</div>
+            <div class="triple-desc">
+              В самописной форме <code>ffbox-offer-form</code> нет скрытых полей. Заявки отправляются серверным вызовом, Битрикс24 помечает их как «Прочий трафик».
+            </div>
+            <div class="badge-source">📊 PDF-диагностика CRM_UTM_Ver.2.pdf</div>
+          </div>
+          <div class="triple-col triple-proposal">
+            <div class="triple-tag tag-proposal">🟢 Предложение</div>
+            <div class="triple-title">Внедрение full_attribution_tracker.js</div>
+            <div class="triple-desc">
+              Бесплатный скрипт: чтение UTM, рекламных меток клика (gclid, fbclid), источников перехода (органика Google/Yandex, каталоги) и сохранение первого и последнего визита.
+            </div>
+          </div>
+          <div class="triple-col triple-impact">
+            <div class="triple-tag tag-impact">🔵 Ожидаемый эффект</div>
+            <div class="triple-title">100% прозрачность окупаемости каждого евро</div>
+            <div class="triple-desc">
+              Исключение слепых зон в CRM, автоматическая передача источника в карточку лида Битрикс24.
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="triple-card">
+          <div class="triple-col triple-problem">
+            <div class="triple-tag tag-problem">🔴 Нюанс 3 • Конверсия сайта (CRO)</div>
+            <div class="triple-title">Размытый первый экран без прямого УТП</div>
+            <div class="triple-desc">
+              Сайт обещает «всё для всех» (24 склада по миру), пугая селлеров сложными тарифами и размытой ответственностью после отгрузки перевозчикам.
+            </div>
+            <div class="badge-source">📊 Аудит посадочных страниц FFB</div>
+          </div>
+          <div class="triple-col triple-proposal">
+            <div class="triple-tag tag-proposal">🟢 Предложение</div>
+            <div class="triple-title">Целевые посадочные страницы под сегменты</div>
+            <div class="triple-desc">
+              Два фокусных оффера: «Собственные склады в DE/PL без посредников» и «FBA Prep & Переупаковка под ключ за 48 часов с персональным менеджером».
+            </div>
+          </div>
+          <div class="triple-col triple-impact">
+            <div class="triple-tag tag-impact">🔵 Ожидаемый эффект</div>
+            <div class="triple-title">Рост конверсии в лид с 0.8% до 4.5%</div>
+            <div class="triple-desc">
+              Снижение стоимости лида (CPL) с гипотетических 120 € до прогнозируемых 37.74 €.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Navigation Hub Grid to other 11 sections -->
+    <section>
+      <h2 style="font-size: 1.35rem; font-weight: 800; margin: 36px 0 16px;">
+        Навигация по разделам аудита и стратегии
+      </h2>
+
+      <div class="section-nav-grid">
+        <a class="nav-card" href="index.html">
+          <div>
+            <div class="idx">01 &middot; ДИАГНОСТИКА</div>
+            <h3>Диагностика и контекст</h3>
+            <p>Обзор текущего состояния: 653 клиента, падение органики на 51.5% и необходимость перезапуска лидогенерации.</p>
+          </div>
+          <div class="go">Открыть раздел &rarr;</div>
+        </a>
+
+        <a class="nav-card" href="traffic.html">
+          <div>
+            <div class="idx">02 &middot; ТРАФИК</div>
+            <h3>Трафик и Аналитика (GA4 / SEO)</h3>
+            <p>Динамика за 12 месяцев, провал органики на −51.5%, аномалия конверсии AI Assistants (12.41%) и точки роста.</p>
+          </div>
+          <div class="go">Открыть раздел &rarr;</div>
+        </a>
+
+        <a class="nav-card" href="landings.html">
+          <div>
+            <div class="idx">03 &middot; CRO</div>
+            <h3>Аудит посадочных страниц и CRO</h3>
+            <p>Разбор текущих страниц fulfillment-box.com, барьеры конверсии первого экрана и архитектура нового конвертера.</p>
+          </div>
+          <div class="go">Открыть раздел &rarr;</div>
+        </a>
+
+        <a class="nav-card" href="offer.html">
+          <div>
+            <div class="idx">04 &middot; ПОЗИЦИОНИРОВАНИЕ</div>
+            <h3>Офферная стратегия и УТП</h3>
+            <p>Сегментация селлеров S/M/L/H, позиционирование домашних складов DE/PL и преодоление страхов WMS/ответственности.</p>
+          </div>
+          <div class="go">Открыть раздел &rarr;</div>
+        </a>
+
+        <a class="nav-card" href="paid-ads.html">
+          <div>
+            <div class="idx">05 &middot; РЕКЛАМА</div>
+            <h3>Медиаплан на 2 000 € (Paid Ads)</h3>
+            <p>Точечные поисковые кампании Google Ads (DE+PL / US порты), CPL-модель и прогноз 37 500 € LTV.</p>
+          </div>
+          <div class="go">Открыть раздел &rarr;</div>
+        </a>
+
+        <a class="nav-card" href="competitors-audit.html">
+          <div>
+            <div class="idx">06 &middot; TCF БЕНЧМАРК</div>
+            <h3>TCF Бенчмарк тарифов (25+ операторов)</h3>
+            <p>Расчет затрат на 1 000 заказов, сравнение 25+ ключевых операторов EU/US/UK, боевые карточки аргументов для ОП.</p>
+          </div>
+          <div class="go">Открыть раздел &rarr;</div>
+        </a>
+
+        <a class="nav-card" href="competitors.html">
+          <div>
+            <div class="idx">07 &middot; РАЗВЕДКА 76+</div>
+            <h3>Расширенная база 76+ конкурентов</h3>
+            <p>SWOT, УТП, ценовые бенчмарки, 5 battlecard-таблиц по рынкам, Donut/Bar инфографика и интерактивный реестр.</p>
+          </div>
+          <div class="go">Открыть раздел &rarr;</div>
+        </a>
+
+        <a class="nav-card" href="crm.html">
+          <div>
+            <div class="idx">08 &middot; CRM</div>
+            <h3>CRM-аудит Bitrix24 и Атрибуция</h3>
+            <p>9 001 лид FFB + 4 бренда вне FFB, разрыв 97.4% без UTM и готовый трекер full_attribution_tracker.js.</p>
+          </div>
+          <div class="go">Открыть раздел &rarr;</div>
+        </a>
+
+        <a class="nav-card" href="unit-economics.html">
+          <div>
+            <div class="idx">09 &middot; КАЛЬКУЛЯТОР</div>
+            <h3>Симулятор Unit-экономики и ROI</h3>
+            <p>Интерактивный калькулятор на JS с ползунками бюджета, CPC, конверсий, чека и срока жизни клиента.</p>
+          </div>
+          <div class="go">Открыть раздел &rarr;</div>
+        </a>
+
+        <a class="nav-card" href="roadmap.html">
+          <div>
+            <div class="idx">10 &middot; ROADMAP</div>
+            <h3>Дорожная карта на 90 дней</h3>
+            <p>Понедельный Gantt-план: Инфраструктура &rarr; Тест Google Ads &rarr; Масштабирование до 5 000 €/мес.</p>
+          </div>
+          <div class="go">Открыть раздел &rarr;</div>
+        </a>
+
+        <a class="nav-card" href="verification.html">
+          <div>
+            <div class="idx">11 &middot; ВЕРИФИКАЦИЯ</div>
+            <h3>Матрица верификации данных</h3>
+            <p>100% сопоставление всех цифр с первоисточниками (API Bitrix24, базы ОП, GA4, Semrush, транскрипты).</p>
+          </div>
+          <div class="go">Открыть раздел &rarr;</div>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="ds-footer">
+    <div style="font-weight: 700; color: var(--ds-ink); margin-bottom: 6px;">Fulfillment-Box (FFB) &middot; Управленческий аудит и Стратегия 2026</div>
+    <div>Внутренний документ. Все данные верифицированы по первичным источникам компании.</div>
+  </footer>
+
+  <script src="js/nav.js"></script>
+</body>
+</html>
